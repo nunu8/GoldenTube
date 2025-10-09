@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldenTube</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS extern -->
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <!-- Icona (favicon) que apareix a la pestanya del navegador -->
+    <link rel="icon" href="./RECURSOS/FAVICON.png" type="image/png">
+</head>
+
+<body>
+    <!-- ========================================================= -->
+    <!-- LOGO CENTRAT -->
+    <!-- ========================================================= -->
+    <div class="logo-container">
+    <a href="index.html" class="logo-independent">
+        <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img">
+    </a>
+    </div>
+    <!-- ========================================================= -->
+    <!-- CAPÇALERA PRINCIPAL -->
+    <!-- ========================================================= -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+            <!--
+            1.(navbar) Barra de navegació
+            2.(navbar-expand-lg) Defineix a partir de quin punt de trencament (breakpoint) el menú es desplegarà horitzontalment lg = Large (≥992px de pantalla)
+            En pantalles més petites que 992px → apareix el botó hamburguesa
+            En pantalles ≥992px → el menú es veu horitzontal
+            3.(fixed-top) Fixa la navbar a la part superior de la pantalla. Aplica position: fixed i top: 0
+            4.(shadow-sm) Afegeix una ombra petita (small) a la navbar
+            -->
+            <div class="container-fluid"> <!--Crea un contenidor d'amplada completa (100% de l'ample de la pantalla)-->
+                <!-- ========================================================= -->
+                <!-- BOTÓ HAMBURGUESA MÒBIL -->
+                <!-- ========================================================= -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--
+                1.(class="navbar-toggler") Classe de Bootstrap per al botó menú hamburguesa
+                2.(type="button") Defineix que és un botó normal (no de submit de formulari)
+                3.(data-bs-toggle="collapse") Atribut de Bootstrap JavaScript. Indica que aquest botó controla un element col·lapsable.
+                bs = Bootstrap.
+                Quan cliques el botó → obre/tanca (toggle) l'element col·lapsat
+                4.(data-bs-target="#navbarNav") Defineix quin element s'obrirà/tancarà. #navbarNav → enllaça amb l'element que té id="navbarNav"
+                Molt important: l'ID ha de coincidir exactament!
+                5.(aria-controls="navbarNav") (ARIA = Accessible Rich Internet Applications)
+                Indica als lectors de pantalla quin element controla aquest botó. Ha de coincidir amb l'ID de l'element controlat
+                6.(aria-expanded="false") Indica si el menú està obert (true) o tancat (false). Comença com false (tancat)
+                Bootstrap canvia automàticament aquest valor quan cliques
+                7. (aria-label="Menú") Text descriptiu per a lectors de pantalla. Explica què fa el botó (alternar navegació)
+                Els usuaris amb discapacitat visual saben que aquest botó obre/tanca el menú
+
+                (<span class="navbar-toggler-icon"></span>)
+                Crea la icona de les 3 ratlletes (hamburguesa). Classe de Bootstrap que genera l'icona visualment
+                És un span buit (no té text) perquè la icona es crea amb CSS
+                Bootstrap utilitza un background-image SVG per dibuixar les línies
+                -->
+
+                <!-- ========================================================= -->
+                <!-- MENÚ DE NAVEGACIÓ -->
+                <!-- ========================================================= -->
+                <div class="collapse navbar-collapse justify-content-end small" id="navbarNav">
+                    <!--
+                    1.(collapse) Classe de Bootstrap per elements col·lapsables. Contingut amagat per defecte en mòbil. S'obre/tanca quan cliques el botó hamburguesa
+                    Bootstrap JavaScript gestiona l'animació d'obrir/tancar
+                    2.(navbar-collapse) Classe específica de Bootstrap per menús col·lapsables. Treballa conjuntament amb navbar-toggler (el botó)
+                    Aplica els estils correctes quan el menú es col·lapsa/expandeix. Assegura transicions suaus
+                    3.(justify-content-end) Classe d'utilitat de Flexbox de Bootstrap. Alinea el contingut a la dreta (end = final)
+                    Per això els links del menú surten al costat dret
+
+                    (id="navbarNav") Identificador únic d'aquest element. Molt important: connecta amb el botó hamburguesa
+                    Recorda: el botó té data-bs-target="#navbarNav". Així Bootstrap sap quin menú obrir/tancar
+                    -->
+                    <!-- ========================================================= -->
+                    <!-- LINKS ESQUERRA -->
+                    <!-- ========================================================= -->
+                    <ul class="navbar-nav navbar-left">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inici" title="Ves a la secció d'inici">Inici</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#youtubers" title="Els més virals de l'època">Youtubers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#evolucio" title="Coneix l'evolució de la plataforma">Evolució</a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-section navbar-center">
+                    <!-- Espai buit perquè el logo visual estigui aquí -->
+                    </div>
+
+                    <!-- ========================================================= -->
+                    <!-- LINKS DRETA -->
+                    <!-- ========================================================= -->
+                    <ul class="navbar-nav navbar-right">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#videosvirals" title="Secció amb els vídeos més divertits">Vídeos Virals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#test" title="Descobreix quin youtuber ets!">Quin youtuber ets?</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- BANNER PRINCIPAL -->
+    <!-- ========================================================= -->
+    <section class="banner-hero-img">
+        <img src="./RECURSOS/VHS.png" alt="Banner GoldenTube">
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- CONTINGUT PRINCIPAL -->
+    <!-- ========================================================= -->
+    <main aria-label="Contenido principal de la página" class="mt-5 pt-4">
+        <!-- Secció d'inici -->
+        <section id="inici" class="container my-5">
+            <article class="p-4">
+                <header>
+                    <h2>Inici</h2>
+                </header>
+                <p>Bienvenido a nuestra página web. Aquí encontrarás información relevante sobre nuestros servicios y actividades.</p>
+                <footer>
+                    <p>Pie de la sección de inicio.</p>
+                </footer>
+            </article>
+        </section>
+
+        <!-- Secció "Youtubers" -->
+        <section id="youtubers" class="container my-5">
+            <article class="p-4">
+                <header>
+                    <h2>Youtubers</h2>
+                </header>
+                <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
+                <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
+                <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener" title="Enlace externo a nuestra web">web oficial</a></p>
+                <footer>
+                    <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
+                </footer>
+            </article>
+        </section>
+
+        <!-- Secció "Evolució" -->
+        <section id="evolucio" class="container my-5">
+            <article class="p-4">
+                <header>
+                    <h2>Evolució</h2>
+                </header>
+                <p>¿Tienes alguna pregunta o necesitas más información? No dudes en contactarnos.</p>
+
+                <!-- Formulari amb Bootstrap -->
+                <form action="#" method="post" aria-label="Formulario de contacto">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">Mensaje:</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+
+                <footer class="mt-3">
+                    <p>Puedes también contactarnos por redes sociales.</p>
+                </footer>
+            </article>
+        </section>
+    </main>
+
+        <!-- Secció "Vídeos Virals" -->
+        <section id="videosvirals" class="container my-5">
+            <article class="p-4">
+                <header>
+                    <h2>Vídeos Virals</h2>
+                </header>
+                <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
+                <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
+                <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener" title="Enlace externo a nuestra web">web oficial</a></p>
+                <footer>
+                    <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
+                </footer>
+            </article>
+        </section>
+
+        <!-- Secció "Test" -->
+        <section id="test" class="container my-5">
+            <article class="p-4">
+                <header>
+                    <h2>Quin youtuber ets?</h2>
+                </header>
+                <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
+                <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
+                <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener" title="Enlace externo a nuestra web">web oficial</a></p>
+                <footer>
+                    <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
+                </footer>
+            </article>
+        </section>
+    
+
+    <!-- ========================================================= -->
+    <!-- PEU DE PÀGINA -->
+    <!-- ========================================================= -->
+    <footer aria-label="Pie de la página" class="text-center py-4 bg-body-color text-white mt-5">
+        <p class="mb-0">&copy; 2025 GoldenTube. Tots els drets reservats.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS extern -->
+    <script src="scripts.js"></script>
+</body>
+</html>

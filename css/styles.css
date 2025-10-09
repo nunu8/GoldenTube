@@ -1,0 +1,183 @@
+/*TIPOGRAFIES*/
+@font-face {
+    font-family: 'Loubag';
+    src: url('./FONTS/Loubag-Thin.woff2') format('woff2');
+    font-display: swap; /* Millora el rendiment de càrrega */
+}
+
+/* Base y reset */
+html {
+    font-size: calc(1em + 0.5vw);
+    scroll-padding-top: 80px; /* Espai per navbar fixa */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f6a40c;
+}
+
+.logo-container {
+    position: fixed;
+    top: 20px; /* Ajusta segons on vulguis el logo */
+    left: 50%;
+    transform: translateX(-50%); /* Centra perfectament */
+    z-index: 1001; /* Per sobre del navbar (navbar té z-index: 1000) */
+    pointer-events: none; /* No interfereix amb clics */
+}
+
+.logo-independent {
+    display: block;
+    pointer-events: all; /* Però el logo sí que és clicable */
+    transition: transform 0.3s ease;
+}
+
+/* Logo personalitzat */
+.logo-img {
+    height: 4rem;
+    width: auto;
+}
+
+/* Container fluid amb flexbox */
+.navbar .container-fluid {
+    display: flex;
+    justify-content: space-between; /* Espai entre els 3 elements */
+    align-items: center;
+}
+
+/* Links de l'esquerra */
+.navbar-left {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1; /* Ocupa espai disponible */
+    justify-content: flex-start; /* Alineats a l'esquerra */
+}
+
+/* Logo centrat */
+.navbar-brand {
+    flex: 0 0 auto; /* No creix ni encongeix */
+    margin: 0 2rem; /* Espai als costats */
+}
+
+/* Links de la dreta */
+.navbar-right {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1; /* Ocupa espai disponible */
+    justify-content: flex-end; /* Alineats a la dreta */
+}
+
+/* Navbar personalitzada */
+.navbar {
+    background: #1e1e1e;
+    padding: 0.3rem 2rem;
+    border-radius: 100px;
+    margin: 40px 30px 0 30px;
+    width: calc(100% - 60px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Ombra suau */
+    z-index: 1000;
+}
+
+/* Links del menú */
+.nav-link {
+    color: #f6a40c;
+    margin: 0 0.5rem;
+    transition: color 0.3s;
+    font-family: 'Loubag', sans-serif;
+    padding: 0.1rem 1.2rem;
+    border-radius: 25px;
+    border: 2px solid transparent; /* Border invisible per defecte */
+    position: relative;
+}
+
+/* Fletxa que apareix des de dalt */
+.nav-link::before {
+    content: '▼'; /* Fletxa cap avall */
+    position: absolute;
+    top: -35px; /* Comença amunt (fora de vista) */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #1e1e1e;
+    font-size: 0.7rem;
+    opacity: 0; /* Invisible per defecte */
+    transition: all 0.4s ease;
+}
+
+/* Hover - Fletxa baixa i es fa visible */
+.nav-link:hover::before {
+    top: -30px; /* Baixa fins a sobre del link */
+    opacity: 1; /* Es fa visible */
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    border-color: #f6a40c; /* Border daurat */
+}
+
+/* Actiu - Fletxa sempre visible */
+.nav-link.active::before {
+    top: -10px;
+    opacity: 1;
+    color: #ffffff;
+}
+
+/* Actiu */
+.nav-link.active {
+    color: #ffffff !important;
+    border-color: #f6a40c;
+}
+
+/* Focus visible para accesibilidad */
+.nav-link:focus,
+.btn:focus,
+.form-control:focus {
+    outline: 3px solid #FF9900;
+    outline-offset: 2px;
+    box-shadow: none;
+}
+
+/* Botó personalitzat */
+.btn-primary {
+    background-color: #000000;
+    border-color: #000000;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.banner-hero-img {
+    width: 90%;
+    margin: 0 auto; /* ← AIXÒ CENTRA EL BANNER */
+    overflow: hidden;
+    padding-top: 150px;
+    padding-left: 0; /* Elimina padding lateral si uses margin auto */
+    padding-right: 0;
+}
+
+.banner-hero-img img {
+    width: 100%; /* ← Canvia a 100% perquè ocupi tot el contenidor */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centra la imatge dins del contenidor */
+}
+
+#inici, #youtubers, #evolucio, #videosvirals, #test {
+    background-color: #1e1e1e;
+    border-radius: 25px;
+    color: #ffffff;
+}
+
+/* Footer personalitzat */
+footer[aria-label="Pie de la página"] {
+    background-color: #000000;
+    font-family: 'Loubag', sans-serif;
+    font-size: 0.7rem;
+}
