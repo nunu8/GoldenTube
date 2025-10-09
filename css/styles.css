@@ -156,10 +156,11 @@ body {
 .banner-hero-img {
     width: 90%;
     margin: 0 auto; /* ← AIXÒ CENTRA EL BANNER */
-    overflow: hidden;
+    overflow: visible;
     padding-top: 150px;
     padding-left: 0; /* Elimina padding lateral si uses margin auto */
     padding-right: 0;
+    position: relative;
 }
 
 .banner-hero-img img {
@@ -167,6 +168,45 @@ body {
     height: auto;
     display: block;
     margin: 0 auto; /* Centra la imatge dins del contenidor */
+}
+
+.banner-overlay-image {
+    position: absolute;
+    top: 60%; /* Centra verticalment */
+    left: 48%; /* Centra horitzontalment */
+    transform: translate(-50%, -50%); /* Centra perfectament */
+    z-index: 10; /* Per sobre del banner */
+    cursor: pointer; /* Indica que és interactiu */
+}
+
+/* Imatge per defecte */
+.image-default {
+    width: 10rem !important; /* Ajusta la mida que vulguis */
+    height: auto;
+    display: block;
+    transition: opacity 0.4s ease;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5)); /* Ombra */
+}
+
+/* Imatge hover (oculta per defecte) */
+.image-hover {
+    width: 19.7rem !important;
+    height: auto;
+    position: absolute;
+    top: -26%;
+    left: -37%;
+    opacity: 0; /* Invisible per defecte */
+    transition: opacity 0.4s ease;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Al fer hover, canvia les imatges */
+.banner-overlay-image:hover .image-default {
+    opacity: 0; /* Amaga la imatge per defecte */
+}
+
+.banner-overlay-image:hover .image-hover {
+    opacity: 1; /* Mostra la imatge hover */
 }
 
 #inici, #youtubers, #evolucio, #videosvirals, #test {
