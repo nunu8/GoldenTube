@@ -1,89 +1,70 @@
-/*TIPOGRAFIES*/
+/* TIPOGRAFIES */
 @font-face {
     font-family: 'Loubag';
     src: url('./FONTS/Loubag-Thin.woff2') format('woff2');
-    font-display: swap; /* Millora el rendiment de càrrega */
+    font-display: swap;
 }
 
-/* Base y reset */
+/* Base personalitzada */
 html {
-    font-size: calc(1em + 0.5vw);
-    scroll-padding-top: 80px; /* Espai per navbar fixa */
+    /*font-size: calc(1em + 0.5vw);*/
+    scroll-padding-top: 80px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f6a40c;
-}
-
+/* Logo flotant centrat */
 .logo-container {
     position: fixed;
-    top: 20px; /* Ajusta segons on vulguis el logo */
+    top: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Centra perfectament */
-    z-index: 1001; /* Per sobre del navbar (navbar té z-index: 1000) */
-    pointer-events: none; /* No interfereix amb clics */
+    transform: translateX(-50%);
+    z-index: 1001;
+    pointer-events: none;
 }
 
 .logo-independent {
     display: block;
-    pointer-events: all; /* Però el logo sí que és clicable */
+    pointer-events: all;
     transition: transform 0.3s ease;
 }
 
-/* Logo personalitzat */
 .logo-img {
     height: 4rem;
     width: auto;
 }
 
-/* Container fluid amb flexbox */
+/* Navbar amb forma especial */
+.navbar {
+    border-radius: 100px;
+    margin: 40px auto 0 auto;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
 .navbar .container-fluid {
     display: flex;
-    justify-content: space-between; /* Espai entre els 3 elements */
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Links de l'esquerra */
-.navbar-left {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    flex: 1; /* Ocupa espai disponible */
-    justify-content: flex-start; /* Alineats a l'esquerra */
-}
-
-/* Logo centrat */
-.navbar-brand {
-    flex: 0 0 auto; /* No creix ni encongeix */
-    margin: 0 2rem; /* Espai als costats */
-}
-
-/* Links de la dreta */
+.navbar-left,
 .navbar-right {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    flex: 1; /* Ocupa espai disponible */
-    justify-content: flex-end; /* Alineats a la dreta */
+    flex: 1;
 }
 
-/* Navbar personalitzada */
-.navbar {
-    background: #1e1e1e;
-    padding: 0.3rem 2rem;
-    border-radius: 100px;
-    margin: 40px auto 0 auto;
-    width: 90%;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Ombra suau */
-    z-index: 1000;
+.navbar-left {
+    justify-content: flex-start;
 }
 
-/* Links del menú */
+.navbar-right {
+    justify-content: flex-end;
+}
+
+/* Links amb efecte fletxa personalitzat */
 .nav-link {
     color: #f6a40c;
     margin: 0 0.5rem;
@@ -91,133 +72,91 @@ body {
     font-family: 'Loubag', sans-serif;
     padding: 0.1rem 1.2rem;
     border-radius: 25px;
-    border: 2px solid transparent; /* Border invisible per defecte */
+    border: 2px solid transparent;
     position: relative;
 }
 
-/* Fletxa que apareix des de dalt */
 .nav-link::before {
-    content: '▼'; /* Fletxa cap avall */
+    content: '▼';
     position: absolute;
-    top: -35px; /* Comença amunt (fora de vista) */
+    top: -35px;
     left: 50%;
     transform: translateX(-50%);
     color: #1e1e1e;
     font-size: 0.7rem;
-    opacity: 0; /* Invisible per defecte */
+    opacity: 0;
     transition: all 0.4s ease;
 }
 
-/* Hover - Fletxa baixa i es fa visible */
 .nav-link:hover::before {
-    top: -30px; /* Baixa fins a sobre del link */
-    opacity: 1; /* Es fa visible */
+    top: -30px;
+    opacity: 1;
 }
 
 .nav-link:hover {
     color: #ffffff;
-    border-color: #f6a40c; /* Border daurat */
+    border-color: #f6a40c;
 }
 
-/* Actiu - Fletxa sempre visible */
 .nav-link.active::before {
     top: -10px;
     opacity: 1;
     color: #ffffff;
 }
 
-/* Actiu */
 .nav-link.active {
     color: #ffffff !important;
     border-color: #f6a40c;
 }
 
-/* Focus visible para accesibilidad */
-.nav-link:focus,
-.btn:focus,
-.form-control:focus {
-    outline: 3px solid #FF9900;
-    outline-offset: 2px;
-    box-shadow: none;
-}
-
-/* Botó personalitzat */
-.btn-primary {
-    background-color: #000000;
-    border-color: #000000;
-    transition: background-color 0.3s;
-}
-
-.btn-primary:hover {
-    background-color: #000000;
-    border-color: #000000;
-}
-
+/* Banner amb efectes especials */
 .banner-hero-img {
     width: 90%;
-    margin: 0 auto; /* ← AIXÒ CENTRA EL BANNER */
+    margin: 0 auto;
     overflow: visible;
     padding-top: 150px;
-    padding-left: 0; /* Elimina padding lateral si uses margin auto */
-    padding-right: 0;
     position: relative;
 }
 
 .banner-hero-img img {
-    width: 100%; /* ← Canvia a 100% perquè ocupi tot el contenidor */
+    width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Centra la imatge dins del contenidor */
+    margin: 0 auto;
 }
 
 .banner-overlay-image {
     position: absolute;
-    top: 60%; /* Centra verticalment */
-    left: 48%; /* Centra horitzontalment */
-    transform: translate(-50%, -50%); /* Centra perfectament */
-    z-index: 10; /* Per sobre del banner */
-    cursor: pointer; /* Indica que és interactiu */
+    top: 60%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    cursor: pointer;
 }
 
-/* Imatge per defecte */
 .image-default {
-    width: 10rem !important; /* Ajusta la mida que vulguis */
+    width: 10rem !important;
     height: auto;
     display: block;
     transition: opacity 0.4s ease;
-    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5)); /* Ombra */
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
-/* Imatge hover (oculta per defecte) */
 .image-hover {
     width: 19.7rem !important;
     height: auto;
     position: absolute;
     top: -26%;
     left: -37%;
-    opacity: 0; /* Invisible per defecte */
+    opacity: 0;
     transition: opacity 0.4s ease;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
-/* Al fer hover, canvia les imatges */
 .banner-overlay-image:hover .image-default {
-    opacity: 0; /* Amaga la imatge per defecte */
+    opacity: 0;
 }
 
 .banner-overlay-image:hover .image-hover {
-    opacity: 1; /* Mostra la imatge hover */
-}
-
-#inici, #youtubers, #evolucio, #videosvirals, #test {
-    background-color: #1e1e1e;
-    border-radius: 25px;
-    color: #ffffff;
-}
-
-/* Footer personalitzat */
-footer[aria-label="Pie de la página"] {
-    background-color: #000000;
-    font-family: 'Loubag', sans-serif;
-    font-size: 0.7rem;
+    opacity: 1;
 }
