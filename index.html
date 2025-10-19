@@ -22,14 +22,14 @@
     <!-- ========================================================= -->
     <div class="logo-container">
     <a href="index.html" class="logo-independent">
-        <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img">
+        <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img" style="height: 6.7rem;">
     </a>
     </div>
     <!-- ========================================================= -->
     <!-- CAPÇALERA PRINCIPAL -->
     <!-- ========================================================= -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-secondary fs-4">
+        <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-secondary fs-4 rounded-pill mt-5 mx-auto" style="width: 90%;">
             <!--
             1.(navbar) Barra de navegació
             2.(navbar-expand-lg) Defineix a partir de quin punt de trencament (breakpoint) el menú es desplegarà horitzontalment lg = Large (≥992px de pantalla)
@@ -120,12 +120,13 @@
     <!-- ========================================================= -->
     <!-- BANNER PRINCIPAL -->
     <!-- ========================================================= -->
-    <section class="banner-hero-img">
-        <img src="./RECURSOS/VHS.png" alt="Banner GoldenTube">
-        <!-- Imatgecentrada sobre el banner -->
-        <div class="banner-overlay-image">
-        <img src="./RECURSOS/fletxa.png" alt="Imatge principal" class="image-default">
-        <img src="./RECURSOS/youtubers/youtubersbanner.png" alt="Imatge hover" class="image-hover">
+    <section class="position-relative overflow-visible mx-auto pt-custom" style="width: 90%;">
+    <img src="./RECURSOS/VHS.png" alt="Banner GoldenTube" class="w-100 h-auto d-block mx-auto">
+    
+    <!-- Imatge centrada sobre el banner -->
+    <div class="position-absolute top-60 start-48 translate-middle banner-hover-container" style="z-index: 10; cursor: pointer;">
+        <img src="./RECURSOS/fletxa.png" alt="Imatge principal" class="image-default d-block">
+        <img src="./RECURSOS/youtubers/youtubersbanner.png" alt="Imatge hover" class="image-hover position-absolute">
     </div>
     </section>
 

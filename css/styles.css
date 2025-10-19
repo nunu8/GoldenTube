@@ -27,16 +27,7 @@ html {
     transition: transform 0.3s ease;
 }
 
-.logo-img {
-    height: 4rem;
-    width: auto;
-}
-
-/* Navbar amb forma especial */
 .navbar {
-    border-radius: 100px;
-    margin: 40px auto 0 auto;
-    width: 90%;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
@@ -109,54 +100,44 @@ html {
     border-color: #f6a40c;
 }
 
-/* Banner amb efectes especials */
-.banner-hero-img {
-    width: 90%;
-    margin: 0 auto;
-    overflow: visible;
+/* Padding top personalitzat per al banner */
+.pt-custom {
     padding-top: 150px;
-    position: relative;
 }
 
-.banner-hero-img img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.banner-overlay-image {
-    position: absolute;
+/* Posicions personalitzades (Bootstrap no té top-60% ni start-48%) */
+.top-60 {
     top: 60%;
-    left: 48%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    cursor: pointer;
 }
 
+.start-48 {
+    left: 48%;
+}
+
+/* Imatge per defecte */
 .image-default {
     width: 10rem !important;
     height: auto;
-    display: block;
     transition: opacity 0.4s ease;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
+/* Imatge hover */
 .image-hover {
-    width: 19.7rem !important;
+    width: 29rem !important;
     height: auto;
-    position: absolute;
-    top: -26%;
-    left: -37%;
+    top: -61%;
+    left: -78%;
     opacity: 0;
     transition: opacity 0.4s ease;
     filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
 }
 
-.banner-overlay-image:hover .image-default {
+/* Efecte hover */
+.banner-hover-container:hover .image-default {
     opacity: 0;
 }
 
-.banner-overlay-image:hover .image-hover {
+.banner-hover-container:hover .image-hover {
     opacity: 1;
 }
