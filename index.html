@@ -20,8 +20,8 @@
     <!-- ========================================================= -->
     <!-- LOGO CENTRAT -->
     <!-- ========================================================= -->
-    <div class="logo-container">
-    <a href="index.html" class="logo-independent">
+    <div class="position-fixed start-50 translate-middle-x logo-container-custom" style="top: 20px; z-index: 1001; pointer-events: none;">
+    <a href="index.html" class="d-block" style="pointer-events: all;">
         <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img" style="height: 6.7rem;">
     </a>
     <h1 class="visually-hidden">GoldenTube</h1>
@@ -30,7 +30,7 @@
     <!-- CAPÇALERA PRINCIPAL -->
     <!-- ========================================================= -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-secondary fs-4 rounded-pill mt-5 mx-auto" style="width: 90%;">
+        <nav class="navbar navbar-expand-lg fixed-top shadow bg-secondary fs-5 rounded-pill mt-5 mx-auto" style="width: 90%; z-index: 1000;">
             <!--
             1.(navbar) Barra de navegació
             2.(navbar-expand-lg) Defineix a partir de quin punt de trencament (breakpoint) el menú es desplegarà horitzontalment lg = Large (≥992px de pantalla)
@@ -39,13 +39,13 @@
             3.(fixed-top) Fixa la navbar a la part superior de la pantalla. Aplica position: fixed i top: 0
             4.(shadow-sm) Afegeix una ombra petita (small) a la navbar
             -->
-            <div class="container-fluid"> <!--Crea un contenidor d'amplada completa (100% de l'ample de la pantalla)-->
+            <div class="container-fluid d-flex justify-content-between align-items-center">
                 <!-- ========================================================= -->
                 <!-- BOTÓ HAMBURGUESA MÒBIL -->
                 <!-- ========================================================= -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Menú">
+                <span class="navbar-toggler-icon"></span>
                 </button>
                 <!--
                 1.(class="navbar-toggler") Classe de Bootstrap per al botó menú hamburguesa
@@ -71,7 +71,7 @@
                 <!-- ========================================================= -->
                 <!-- MENÚ DE NAVEGACIÓ -->
                 <!-- ========================================================= -->
-                <div class="collapse navbar-collapse justify-content-end small" id="navbarNav">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <!--
                     1.(collapse) Classe de Bootstrap per elements col·lapsables. Contingut amagat per defecte en mòbil. S'obre/tanca quan cliques el botó hamburguesa
                     Bootstrap JavaScript gestiona l'animació d'obrir/tancar
@@ -86,32 +86,32 @@
                     <!-- ========================================================= -->
                     <!-- LINKS ESQUERRA -->
                     <!-- ========================================================= -->
-                    <ul class="navbar-nav navbar-left">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#inici" title="Ves a la secció d'inici">Inici</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#youtubers" title="Els més virals de l'època">Youtubers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#evolucio" title="Coneix l'evolució de la plataforma">Evolució</a>
-                        </li>
+                    <ul class="navbar-nav d-flex list-unstyled m-0 p-0 flex-fill justify-content-start">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary mx-2 px-3 py-0 rounded-pill position-relative nav-link-custom" href="#inici" title="Ves a la secció d'inici">Inici</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary mx-2 px-3 py-0 rounded-pill position-relative nav-link-custom" href="#youtubers" title="Els més virals de l'època">Youtubers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary mx-2 px-3 py-0 rounded-pill position-relative nav-link-custom" href="#evolucio" title="Coneix l'evolució de la plataforma">Evolució</a>
+                    </li>
                     </ul>
 
-                    <div class="navbar-section navbar-center">
+                    <div class="navbar-section flex-shrink-0 mx-4">
                     <!-- Espai buit perquè el logo visual estigui aquí -->
                     </div>
 
                     <!-- ========================================================= -->
                     <!-- LINKS DRETA -->
                     <!-- ========================================================= -->
-                    <ul class="navbar-nav navbar-right">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#videosvirals" title="Secció amb els vídeos més divertits">Vídeos Virals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#test" title="Descobreix quin youtuber ets!">Quin youtuber ets?</a>
-                        </li>
+                    <ul class="navbar-nav d-flex list-unstyled m-0 p-0 flex-fill justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link text-primary mx-2 px-3 py-0 rounded-pill position-relative nav-link-custom" href="#videosvirals" title="Secció amb els vídeos més divertits">Vídeos Virals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary mx-2 px-3 py-0 rounded-pill position-relative nav-link-custom" href="#test" title="Descobreix quin youtuber ets!">Quin youtuber ets?</a>
+                    </li>
                     </ul>
                 </div>
             </div>
@@ -136,36 +136,31 @@
     <!-- ========================================================= -->
     <main aria-label="Contenido principal de la página" class="mt-5 pt-4">
         <!-- Secció d'inici -->
-        <section id="inici" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4">
+        <section id="inici" class="container my-0">
+            <article class="p-4 bg-secondary text-white rounded-4 text-center">
                 <header>
-                    <h2>Inici</h2>
+                    <h2>✨ Benvinguts a GoldenTube! ✨</h2>
                 </header>
-                <p>Bienvenido a nuestra página web. Aquí encontrarás información relevante sobre nuestros servicios y actividades.</p>
+                <p>Reviveix l'Època Daurada de YouTube! 🎞️ Aquí celebrem la nostàlgia i el llegat dels Youtubers pioners que van definir una generació.</p>
                 <footer>
-                    <p>Pie de la sección de inicio.</p>
+                    <p>Submergeix-te en els inicis d'Internet!</p>
                 </footer>
             </article>
         </section>
 
         <!-- Secció "Youtubers" -->
         <section id="youtubers" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4">
+            <article class="p-4 bg-secondary text-white rounded-4 text-center">
                 <header>
                     <h2>Youtubers</h2>
                 </header>
-                <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
-                <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
-                <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener" title="Enlace externo a nuestra web">web oficial</a></p>
-                <footer>
-                    <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
-                </footer>
+                
             </article>
         </section>
 
         <!-- Secció "Evolució" -->
         <section id="evolucio" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4">
+            <article class="p-4 bg-secondary text-white rounded-4 text-center">
                 <header>
                     <h2>Evolució</h2>
                 </header>
@@ -200,7 +195,7 @@
 
         <!-- Secció "Vídeos Virals" -->
         <section id="videosvirals" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4">
+            <article class="p-4 bg-secondary text-white rounded-4 text-center">
                 <header>
                     <h2>Vídeos Virals</h2>
                 </header>
@@ -215,7 +210,7 @@
 
         <!-- Secció "Test" -->
         <section id="test" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4">
+            <article class="p-4 bg-secondary text-white rounded-4 text-center">
                 <header>
                     <h2>Quin youtuber ets?</h2>
                 </header>
@@ -233,6 +228,13 @@
     <!-- PEU DE PÀGINA -->
     <!-- ========================================================= -->
     <footer aria-label="Pie de la página" class="text-center py-4 bg-secondary text-white mt-5 fs-6">
+        <a href="index.html">
+        <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" style="height: 3rem;">
+        </a>
+        <br>
+        <br>
+        <br> <!--ficar termes i condicions etc-->
+        <hr>
         <p class="mb-0">&copy; 2025 GoldenTube. Tots els drets reservats.</p>
     </footer>
     
