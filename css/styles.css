@@ -114,75 +114,56 @@ html {
 
 /*-------------------------------------------------------------------------------*/
 
-/* 1. Resetear qualsevol estil de fons o icona que Bootstrap hagi afegit als controls */
-#youtuberCarousel .carousel-control-prev,
-#youtuberCarousel .carousel-control-next {
-    /* Assegurem que no hi hagi cap fons de Bootstrap que amagui la nostra imatge */
-    background-image: none;
-    /* Redefinim l'amplada i alçada base del botó si fos necessari */
-    width: auto; 
-    opacity: 1.0 !important;
-    transition: transform 0.3s ease;
-    /* CLAU 2: Centratge vertical inicial */
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* 2. Estils per a la teva imatge PNG */
-.custom-carousel-icon {
-    /* Defineix la mida de la teva imatge */
-    width: auto; /* Ajusta l'amplada desitjada */
-    height: 40px; /* Ajusta l'alçada desitjada */
-    /* Utilitza un filtre de color si necessites canviar el color de la icona PNG */
+/* Carrusel infinit */
+.carousel-wrapper {
+    position: relative;
+    max-width: calc(4 * 15rem + 3 * 1.5rem);
 }
 
 #youtuberCarousel {
-    /* CLAU 1: Necessari per posicionar les fletxes (absolute) correctament. */
-    position: relative; 
-    overflow: visible; 
+    overflow: hidden;
+    position: relative;
 }
 
-/* EFECTE HOVER: Mantenir centratge i moure lateralment */
-#youtuberCarousel .carousel-control-prev:hover {
-    /* Combinació de centratge i moviment */
-    transform: translateY(-50%) translateX(-5px); 
-}
-
-#youtuberCarousel .carousel-control-next:hover {
-    /* Combinació de centratge i moviment */
-    transform: translateY(-50%) translateX(5px);
-}
-
-#youtuberCarousel .carousel-inner {
-    /* CLAU 3: Permet que els ítems es col·loquin en línia */
+.carousel-track {
     display: flex;
-    transform: none !important; /* Desactiva la transformació per defecte de Bootstrap */
+    gap: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
 }
 
-#youtuberCarousel .carousel-item {
-    /* CLAU 4: Cada ítem ocupa el 25% de l'amplada (100% / 4 = 25%) */
-    flex: 0 0 25% !important;
-    display: block !important; 
-    
-    /* Desactivem la transició de l'item perquè la gestionarà el JS */
-    transition: none !important; 
-    transform: none !important;
+.carousel-slide {
+    width: 15rem;
+    flex-shrink: 0;
+    margin: 0;
 }
 
-#youtuberCarousel .carousel-item figure {
-    width: 100%; /* Ocupa tot el 25% */
-    text-align: center; /* Centra la imatge i el text */
+/* Botons de control */
+.carousel-btn {
+    background: none;
+    border: none;
+    z-index: 10;
+    cursor: pointer;
+    opacity: 1;
+    /* Transició per TOTES les propietats de transform */
+    transition: transform 0.3s ease;
 }
 
-/* DESACTIVA L'ANIMACIÓ DE TRANSICIÓ DE BOOTSTRAP */
-/* Això atura l'efecte de "parpelleig" o de moviment trencat */
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev,
-.carousel-inner .carousel-item.active.carousel-item-right,
-.carousel-inner .carousel-item.active.carousel-item-left {
-    /* Posem el moviment a 0 per desactivar la transició CSS */
-    transform: translateX(0) !important; 
-    transition: none !important;
+/* Hover - Moviment lateral MANTENINT el centratge vertical */
+.carousel-btn-prev:hover {
+    transform: translateY(-50%) translateX(-10px); /* ← Mantén translateY(-50%) */
+}
+
+.carousel-btn-next:hover {
+    transform: translateY(-50%) translateX(10px); /* ← Mantén translateY(-50%) */
+}
+
+/* Icones de les fletxes */
+.custom-carousel-icon {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+    transition: filter 0.3s ease;
 }
 
 /*-------------------------------------------------------------------------------*/
