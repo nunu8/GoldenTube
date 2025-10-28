@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Evitem que les flip-cards siguin focusables mitjançant Tab: eliminem tabindex si existeix
+    // Això evita que s'hagin de prémer moltes vegades Tab per arribar a les fletxes del carrusel
+    pista.querySelectorAll('.flip-card').forEach(el => el.removeAttribute('tabindex'));
+
     // Funció per afegir handlers de flip a les targetes que ja estan a l'HTML
     function configurarHandlersFlip() {
         const flipCards = pista.querySelectorAll('.flip-card');
@@ -99,7 +103,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Reactiva la transició després d'un frame
     setTimeout(() => {
         pista.style.transition = 'transform 0.5s ease-in-out';
+        // Actualitza quins Play seran focusables (només els visibles al viewport del carrusel)
+        updateFocusablePlays();
     }, 50);
+
+    // Marca només com a focusables (tabindex=0) els img[data-detail] que estiguin visibles dins del track
+    function updateFocusablePlays() {
+        if (!pista) return;
+        const trackRect = pista.getBoundingClientRect();
+        const plays = pista.querySelectorAll('img[data-detail]');
+        plays.forEach(play => {
+            const slide = play.closest('.carousel-slide');
+            if (!slide) { play.tabIndex = -1; return; }
+            const rect = slide.getBoundingClientRect();
+            const visible = !(rect.right < trackRect.left || rect.left > trackRect.right);
+            // Si la slide és visible, permitim el focus; si no, el deshabilitem per reduir salts de tab
+            play.tabIndex = visible ? 0 : -1;
+        });
+    }
 
     function moureAlaSlide(index) {
         if (enTransicio) return;
@@ -117,6 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 pista.style.transform = `translateX(-${ampladaSlide * indexActual}px)`;
                 setTimeout(() => {
                     pista.style.transition = 'transform 0.5s ease-in-out';
+                    // actualitzem focusables un cop acabada la correcció instantània
+                    updateFocusablePlays();
                 }, 50);
             }
             // Si ens hem desplaçat al primer grup (esquerra extrema), salta a l'equivalent del grup del mig
@@ -126,9 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 pista.style.transform = `translateX(-${ampladaSlide * indexActual}px)`;
                 setTimeout(() => {
                     pista.style.transition = 'transform 0.5s ease-in-out';
+                    // actualitzem focusables un cop acabada la correcció instantània
+                    updateFocusablePlays();
                 }, 50);
             }
             enTransicio = false;
+            // actualitzem focusables després de qualsevol moviment normal
+            updateFocusablePlays();
         }, 500); // Temps de la transició CSS
     }
 
@@ -528,6 +555,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // assigna handlers a les imatges que fem servir com a botó Play
     document.querySelectorAll('img[data-detail]').forEach(imgEl => {
+        // fer la imatge focusable amb teclat (tab) per accessibilitat
+        imgEl.tabIndex = 0;
+        // indicar que l'element es comporta com a botó per lectors de pantalla
+        imgEl.setAttribute('role', 'button');
+
+        // suport de teclat: Enter o Space obren la mega (i evitem que Space faci scroll a la pàgina)
+        imgEl.addEventListener('keydown', (ev) => {
+            const key = ev.key || ev.keyCode;
+            if (key === 'Enter' || key === ' ' || key === 'Spacebar' || key === 13 || key === 32) {
+                ev.preventDefault();
+                imgEl.click();
+            }
+        });
         // click obre la mega-targeta
         imgEl.addEventListener('click', (e) => {
             const figure = imgEl.closest('.carousel-slide');

@@ -167,6 +167,17 @@
 
                 <div class="carousel-wrapper position-relative mx-auto"
                     style="max-width: calc(4 * 15rem + 3 * 1.5rem);">
+                    <!-- Botons de control: els coloquem abans del carrousel al DOM per a un ordre de focus correcte -->
+                    <button class="carousel-btn carousel-btn-prev position-absolute top-50 translate-middle-y"
+                        type="button" style="left: -5rem;">
+                        <img src="./RECURSOS/youtubers/fletxaesquerra.png" alt="Anterior" class="custom-carousel-icon">
+                    </button>
+
+                    <button class="carousel-btn carousel-btn-next position-absolute top-50 translate-middle-y"
+                        type="button" style="right: -5rem;">
+                        <img src="./RECURSOS/youtubers/fletxadreta.png" alt="Següent" class="custom-carousel-icon">
+                    </button>
+
                     <div id="youtuberCarousel" class="overflow-hidden position-relative" style="padding: 2rem 0;">
                         <div class="carousel-track d-flex gap-4">
                             <!-- Flip card 1 -->
@@ -397,232 +408,166 @@
                         </div>
                     </div>
 
-                    <!-- Botons de control -->
-                    <button class="carousel-btn carousel-btn-prev position-absolute top-50 translate-middle-y"
-                        type="button" style="left: -5rem;">
-                        <img src="./RECURSOS/youtubers/fletxaesquerra.png" alt="Anterior" class="custom-carousel-icon">
-                    </button>
-
-                    <button class="carousel-btn carousel-btn-next position-absolute top-50 translate-middle-y"
-                        type="button" style="right: -5rem;">
-                        <img src="./RECURSOS/youtubers/fletxadreta.png" alt="Següent" class="custom-carousel-icon">
-                    </button>
+                    <!-- Botons de control (mòbils/desktop) - col·locats abans del carrousel al DOM per ordre de focus adequat -->
                 </div>
             </article>
 
             <!-- Contenidor de detalls (per a cada youtuber) -->
-            <div id="youtuber-details" class="container my-5 p-4 bg-secondary text-white rounded-4 text-center">
+            <div id="youtuber-details" class="container my-0 p-4 bg-secondary text-white rounded-4 text-center">
                 <!-- Cada placeholder conté una fitxa breu que serà clonada per la Mega-Targeta -->
                 <div id="detail-rubius" class="d-none text-start">
-                    <h3>ElRubiusOMG</h3>
-                    <div class="detail-content">
-                        <p><strong>Rubén Doblas</strong>, conegut com ElRubius, és un creador de contingut espanyol
-                            famós pels seus gameplays, vlogs i sketches humorístics. Va començar el seu canal en els
-                            primers anys de la dècada de 2010 i ha estat una figura clau en la cultura YouTube en
-                            llengua espanyola.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Gameplays, vídeos humorístics, vlogs</li>
-                            <li><strong>Inici de canal:</strong> ~2011</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong></p>
-                        <ul>
-                            <li><a href="#" target="_blank" rel="noopener">Un dels seus primers vídeos virals</a></li>
-                            <li><a href="#" target="_blank" rel="noopener">Collab memorable</a></li>
-                        </ul>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a> · <a
-                                href="#" target="_blank" rel="noopener">X/Twitter</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/rubius-banner.png" alt="banner ElRubius">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-auronplay" class="d-none text-start">
-                    <h3>AuronPlay</h3>
-                    <div class="detail-content">
-                        <p><strong>AuronPlay</strong> (Raúl Álvarez) és conegut per la seva ironia, comentaris
-                            sarcàstics i vídeos d'entreteniment en directe. Ha combinat vídeos editats amb streams en
-                            directe, atraient una audiència molt gran a Espanya i Llatinoamèrica.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Humor, streams, reaccions</li>
-                            <li><strong>Inici de canal:</strong> ~2006–2010 (creixement posterior)</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong></p>
-                        <ul>
-                            <li><a href="#" target="_blank" rel="noopener">Vídeo viral de reacció</a></li>
-                        </ul>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a> · <a
-                                href="#" target="_blank" rel="noopener">Twitch</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/auronplay-banner.png" alt="banner AuronPlay">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-wismichu" class="d-none text-start">
-                    <h3>Wismichu</h3>
-                    <div class="detail-content">
-                        <p><strong>Wismichu</strong> és un creador de contingut conegut pel seu humor irreverent,
-                            curtmetratges i projectes fora de YouTube. Ha explorat formats narratius i vídeos satírics
-                            que han generat debat i interès.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Humor, curtmetratges, satire</li>
-                            <li><strong>Inici de canal:</strong> ~2010</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong></p>
-                        <ul>
-                            <li><a href="#" target="_blank" rel="noopener">Projecte viral / curt</a></li>
-                        </ul>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/wismichu-banner.png" alt="banner Wismichu">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-dulceida" class="d-none text-start">
-                    <h3>Dulceida</h3>
-                    <div class="detail-content">
-                        <p><strong>Dulceida</strong> és una influencer i creadora de contingut centrada en moda,
-                            lifestyle i viatges. El seu canal barreja tutorials, recomanacions i moments personals
-                            relacionats amb moda i bellesa.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Moda, lifestyle, viatges</li>
-                            <li><strong>Inici de canal:</strong> ~2012</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong></p>
-                        <ul>
-                            <li><a href="#" target="_blank" rel="noopener">Lookbook i col·laboracions</a></li>
-                        </ul>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Instagram</a> · <a
-                                href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/dulceida-banner.png" alt="banner Dulceida">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-giorgio" class="d-none text-start">
-                    <h3>Giorgio</h3>
-                    <div class="detail-content">
-                        <p><strong>Giorgio</strong> és un creador emergent (o local) que aporta contingut de diverses
-                            temàtiques; aquesta fitxa és una entrada genèrica que pots ampliar amb dades reals i
-                            enllaços específics.</p>
-                        <ul>
-                            <li><strong>País:</strong> Per determinar</li>
-                            <li><strong>Tipus de contingut:</strong> Varietat (entreteniment)</li>
-                            <li><strong>Inici de canal:</strong> No especificat</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Vídeo
-                                introductori</a></p>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/giorgio-banner.png" alt="banner Giorgio">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-gref" class="d-none text-start">
-                    <h3>TheGrefg</h3>
-                    <div class="detail-content">
-                        <p><strong>TheGrefg</strong> és conegut pels seus streams i contingut sobre videojocs,
-                            especialment Fortnite i altres títols competitius. Té una comunitat molt activa i organitza
-                            esdeveniments i col·laboracions.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Gameplays, streams, esdeveniments</li>
-                            <li><strong>Inici de canal:</strong> ~2012</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong></p>
-                        <ul>
-                            <li><a href="#" target="_blank" rel="noopener">Stream memorable</a></li>
-                        </ul>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Twitch</a> · <a
-                                href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/gref-banner.png" alt="banner TheGrefg">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-laubalo" class="d-none text-start">
-                    <h3>Laubalo</h3>
-                    <div class="detail-content">
-                        <p><strong>Laubalo</strong> (Carla) és una creadora amb enfoc en contingut juvenil i comunitat;
-                            la fitxa està pensada per omplir amb detalls reals quan els tinguis a mà.</p>
-                        <ul>
-                            <li><strong>País:</strong> Per determinar</li>
-                            <li><strong>Tipus de contingut:</strong> Entreteniment, vlogs</li>
-                            <li><strong>Inici de canal:</strong> No especificat</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Vídeo
-                                popular</a></p>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/laubalo-banner.png" alt="banner Laubalo">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-willyrex" class="d-none text-start">
-                    <h3>Willyrex</h3>
-                    <div class="detail-content">
-                        <p><strong>Willyrex</strong> és un creador veterà de la comunitat hispanoparlant, centrat en
-                            gameplays i col·laboracions amb altres youtubers. Ha contribuït de forma notable a la
-                            cultura del gaming en YouTube.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Gameplays, col·laboracions</li>
-                            <li><strong>Inici de canal:</strong> ~2007–2010</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Sèries de
-                                gaming</a></p>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/willyrex-banner.png" alt="banner Willyrex">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-alexby" class="d-none text-start">
-                    <h3>AlexBy11</h3>
-                    <div class="detail-content">
-                        <p><strong>AlexBy11</strong> ofereix contingut d'entreteniment orientat al públic jove; omple
-                            aquesta fitxa amb dades reals si les tens disponibles.</p>
-                        <ul>
-                            <li><strong>País:</strong> Per determinar</li>
-                            <li><strong>Tipus de contingut:</strong> Entreteniment, gameplays</li>
-                            <li><strong>Inici de canal:</strong> No especificat</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Vídeo
-                                destacat</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/alexby-banner.png" alt="banner AlexBy11">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-yuya" class="d-none text-start">
-                    <h3>Yuya</h3>
-                    <div class="detail-content">
-                        <p><strong>Yuya</strong> és una creadora llatinoamericana especialitzada en bellesa, tutorials i
-                            lifestyle. Ha estat una referència del contingut beauty en espanyol durant anys.</p>
-                        <ul>
-                            <li><strong>País:</strong> Mèxic</li>
-                            <li><strong>Tipus de contingut:</strong> Bellesa, tutorials, reviews</li>
-                            <li><strong>Inici de canal:</strong> ~2009–2011</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Tutorial
-                                icònic</a></p>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a> · <a
-                                href="#" target="_blank" rel="noopener">Instagram</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/yuya-banner.png" alt="banner Yuya">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-ocho" class="d-none text-start">
-                    <h3>8cho</h3>
-                    <div class="detail-content">
-                        <p><strong>8cho</strong> és un nom que pot referir-se a diferents creadors; aquí hi ha una fitxa
-                            genèrica que pots substituir per dades concretes.</p>
-                        <ul>
-                            <li><strong>País:</strong> Per determinar</li>
-                            <li><strong>Tipus de contingut:</strong> Varietat</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Vídeo
-                                popular</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/ocho-banner.png" alt="banner 8cho">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
 
                 <div id="detail-vegetta" class="d-none text-start">
-                    <h3>Vegetta777</h3>
-                    <div class="detail-content">
-                        <p><strong>Vegetta777</strong> és un creador centrat en videojocs i narratives de rol en vídeo;
-                            les seves sèries han tingut gran seguiment en la comunitat hispanoparlant.</p>
-                        <ul>
-                            <li><strong>País:</strong> Espanya</li>
-                            <li><strong>Tipus de contingut:</strong> Gameplays, sèries narratives</li>
-                            <li><strong>Inici de canal:</strong> ~2008–2010</li>
-                        </ul>
-                        <p><strong>Vídeos destacats:</strong> <a href="#" target="_blank" rel="noopener">Sèries i
-                                col·laboracions</a></p>
-                        <p><strong>Més enllaços:</strong> <a href="#" target="_blank" rel="noopener">Canal</a></p>
+                    <div class="mega-detail container p-3">
+                        <div class="mega-profile mb-3">
+                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/vegetta-banner.png" alt="banner Vegetta777">
+                        </div>
+                        <div class="mega-socials d-flex gap-2">
+                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
+                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
+                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                        </div>
                     </div>
                 </div>
             </div>

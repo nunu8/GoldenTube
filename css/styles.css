@@ -254,8 +254,9 @@ html {
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     max-width: 90%;
-    width: 900px;
-    max-height: 90vh;
+    width: 1000px; /* una mica més ample per donar presència */
+    max-height: 97vh; /* fer la mega una mica més alta (a prop del 100% de la pantalla) */
+    min-height: 75vh; /* assegurar una altura mínima més gran */
     overflow: auto;
     position: fixed; /* per animar des del rect d'origen */
     will-change: transform, width, height;
@@ -324,7 +325,25 @@ html {
 .mega-body{
     padding: 1rem;
     overflow:auto;
-    max-height: 80vh;
+    /* Es deixa una mica d'espai per controls i marge superior/inferior
+       respecte a la max-height de la targeta. */
+    max-height: 100vh;
+}
+
+/* Petites pantalles: evitem que la mega passi totalment la pantalla
+   i millorem l'experiència en mòbils */
+@media (max-width: 576px) {
+    .mega-card {
+        width: calc(100% - 2rem);
+        max-height: 92vh;
+        min-height: 56vh; /* mòbils: una mica més gran però sensat */
+    }
+    .mega-body { max-height: 82vh; }
+}
+
+/* Pantalles grans: augmentem lleugerament l'ample perquè la targeta es vegi més imponent */
+@media (min-width: 1400px) {
+    .mega-card { width: 1100px; }
 }
 
 .mega-detail-clone{
@@ -338,6 +357,34 @@ html {
     margin-bottom:12px;
 }
 
+/* Estils per la nova estructura de la mega-targeta */
+.mega-detail {
+    display: block;
+    text-align: left;
+}
+.mega-detail .mega-profile {
+    position: relative;
+    margin-bottom: 1rem;
+    /* Donem un padding interior perquè el banner tingui una mica de marges
+       respecte al contenidor però ocupi visualment tot l'ample disponible. */
+    padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
+    display: block;
+    background: transparent;
+}
+.mega-detail .mega-banner {
+    width: 100%;
+    height: auto; /* mantenim la proporció original i evitem tallar */
+    display: block;
+    object-position: center center;
+    border-radius: 8px;
+}
+.mega-detail .mega-avatar {
+    display: none; /* l'avatar ja està incorporat al banner; ocultem regles antigues */
+}
+.mega-detail h3 { margin-top: 0.5rem; margin-bottom: 6px; }
+.mega-socials { display:flex; gap:12px; margin-top:12px; }
+
 /* Estils per la imatge Play sota cada flip-card
    - centrem la imatge just sota la targeta
    - fem-la més petita perquè no ocupi massa espai
@@ -350,9 +397,22 @@ img[data-detail] {
     max-width: 100%;
     height: auto;
     cursor: pointer;
+    transition: transform 180ms cubic-bezier(.2,.8,.2,1);
+    will-change: transform;
+    transform-origin: center center;
 }
 
+/* Hover i focus: lleu escalat (no forcem cap outline ni shadow) */
+img[data-detail]:hover,
 img[data-detail]:focus {
-    outline: 3px solid #f6a40c;
-    border-radius: 6px;
+    transform: scale(1.12);
+}
+
+/* Respectar preferències d'accessibilitat: desactivar animacions si l'usuari les ha reduïdes */
+@media (prefers-reduced-motion: reduce) {
+    img[data-detail] {
+        transition: none;
+        transform: none !important;
+        will-change: auto;
+    }
 }
