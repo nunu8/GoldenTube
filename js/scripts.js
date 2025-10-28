@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // If the page was opened with a hash (e.g. index.html#test) the browser
+    // may auto-scroll to that anchor on load. Remove the hash immediately and
+    // reset scroll to top to keep the page at its normal starting position.
+    try {
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+            window.scrollTo(0, 0);
+        }
+    } catch (err) {
+        // ignore
+    }
     // Element DOM del carrusel
     const pista = document.querySelector('.carousel-track');
     const botoAnterior = document.querySelector('.carousel-btn-prev');
@@ -86,6 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // NOTE: social icons are provided directly in the HTML now; no runtime replacement needed.
 
     // Configura handlers a les targetes originals i també a les còpies (ja afegides)
     configurarHandlersFlip();
@@ -178,6 +191,403 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    /* ---------------- Quiz: Quin youtuber ets? ---------------- */
+    (function initQuiz() {
+        const quizContainer = document.getElementById('quizQuestions');
+        const quizForm = document.getElementById('quizForm');
+        const quizResult = document.getElementById('quizResult');
+        const quizReset = document.getElementById('quizReset');
+        if (!quizContainer || !quizForm || !quizResult || !quizReset) return;
+
+        const youtubers = [
+            { id: 'rubius', name: 'ElRubiusOMG', banner: './RECURSOS/youtubers/slider/rubius-banner.png', desc: 'Humor, gaming i energia desenfrenada.' },
+            { id: 'auronplay', name: 'AuronPlay', banner: './RECURSOS/youtubers/slider/auronplay-banner.png', desc: 'Sàtira, reaccions i contingut directe.' },
+            { id: 'wismichu', name: 'Wismichu', banner: './RECURSOS/youtubers/slider/wismichu-banner.png', desc: 'Humor àcid i formats originals.' },
+            { id: 'dulceida', name: 'Dulceida', banner: './RECURSOS/youtubers/slider/dulceida-banner.png', desc: 'Moda, estètica i lifestyle.' },
+            { id: 'giorgio', name: 'Giorgio', banner: './RECURSOS/youtubers/slider/giorgio-banner.png', desc: 'Música i producció amb sensibilitat.' },
+            { id: 'gref', name: 'TheGrefg', banner: './RECURSOS/youtubers/slider/gref-banner.png', desc: 'Gaming competitiu i streams professionals.' },
+            { id: 'laubalo', name: 'Laubalo', banner: './RECURSOS/youtubers/slider/laubalo-banner.png', desc: 'Creativitat íntima i contingut personal.' },
+            { id: 'willyrex', name: 'Willyrex', banner: './RECURSOS/youtubers/slider/willyrex-banner.png', desc: 'Gaming clàssic i contingut per a fans.' },
+            { id: 'alexby', name: 'AlexBy11', banner: './RECURSOS/youtubers/slider/alexby-banner.png', desc: 'Entreteniment i vídeos ben editats.' },
+            { id: 'yuya', name: 'Yuya', banner: './RECURSOS/youtubers/slider/yuya-banner.png', desc: 'Belleza, tutorials i alegria.' },
+            { id: 'ocho', name: '8cho', banner: './RECURSOS/youtubers/slider/ocho-banner.png', desc: 'Humor àgil i contingut viral.' },
+            { id: 'vegetta', name: 'Vegetta777', banner: './RECURSOS/youtubers/slider/vegetta-banner.png', desc: 'Gaming narratiu i universos de joc.' }
+        ];
+
+        const questions = [
+            {
+                q: 'Quin tipus de contingut prefereixes crear o veure?',
+                options: [
+                    { t: 'Gaming i energia', adds: ['rubius', 'willyrex', 'vegetta'] },
+                    { t: 'Sàtira i reaccions', adds: ['auronplay', 'wismichu'] },
+                    { t: 'Moda i estètica', adds: ['dulceida', 'yuya'] },
+                    { t: 'Música i producció', adds: ['giorgio', 'alexby'] }
+                ]
+            },
+            {
+                q: 'Què faries un cap de setmana ideal?',
+                options: [
+                    { t: 'Stream amb amics', adds: ['gref', 'rubius'] },
+                    { t: 'Vlog de viatge', adds: ['alexby', 'yuya'] },
+                    { t: 'Reto o prank', adds: ['wismichu', 'auronplay'] },
+                    { t: 'Projecte creatiu sola', adds: ['laubalo', 'ocho'] }
+                ]
+            },
+            {
+                q: 'Com descrius el teu to habitual?',
+                options: [
+                    { t: 'Enèrgic i desenfadat', adds: ['rubius', 'auronplay', 'willyrex'] },
+                    { t: 'Reflexiu i artístic', adds: ['giorgio', 'alexby', 'gref'] },
+                    { t: 'Irònic i punyent', adds: ['wismichu', 'ocho'] },
+                    { t: 'Trendy i cuidat', adds: ['dulceida', 'yuya', 'laubalo'] }
+                ]
+            },
+            {
+                q: 'Quina audiència prefereixes?',
+                options: [
+                    { t: 'Massiva i mainstream', adds: ['vegetta', 'rubius'] },
+                    { t: 'Nínxol apassionat', adds: ['gref', 'alexby'] },
+                    { t: 'Comunitat i streaming', adds: ['auronplay', 'willyrex'] },
+                    { t: 'Moda/creatives', adds: ['dulceida', 'yuya'] }
+                ]
+            },
+            {
+                q: 'Quina durada prefereixes per al teu contingut?',
+                options: [
+                    { t: 'Curt/shorts', adds: ['yuya', 'ocho'] },
+                    { t: 'Streams llargs', adds: ['gref', 'willyrex', 'vegetta'] },
+                    { t: 'Vídeos editats', adds: ['rubius', 'auronplay'] },
+                    { t: 'Tutorials / DIY', adds: ['alexby', 'laubalo'] }
+                ]
+            },
+            {
+                q: 'Quina mena de col·laboracions et veus?',
+                options: [
+                    { t: 'Big collabs de xou', adds: ['rubius', 'auronplay'] },
+                    { t: 'Equip de producció', adds: ['gref', 'vegetta'] },
+                    { t: 'Projectes personals', adds: ['giorgio', 'alexby'] },
+                    { t: 'Comunitat i fans', adds: ['ocho', 'laubalo'] }
+                ]
+            },
+            {
+                q: 'Quin “vibe” t’identifica més?',
+                options: [
+                    { t: 'Brillant i alegre', adds: ['rubius', 'dulceida', 'yuya'] },
+                    { t: 'Fosc i punyent', adds: ['auronplay', 'wismichu'] },
+                    { t: 'Retro / gaming', adds: ['vegetta', 'willyrex'] },
+                    { t: 'Modern i pulit', adds: ['giorgio', 'alexby'] }
+                ]
+            }
+        ];
+
+        // Render the quiz as a step-by-step wizard: one question per view
+        let currentStep = 0;
+        const totalSteps = questions.length;
+        // expose showStep function to outer scope so external buttons can control steps
+        let showStepFn = null;
+
+        function renderSteps() {
+            quizContainer.innerHTML = '';
+
+            questions.forEach((q, qi) => {
+                const step = document.createElement('div');
+                step.className = 'quiz-step';
+                step.dataset.step = qi;
+                step.style.display = qi === 0 ? 'block' : 'none';
+
+                const h = document.createElement('h4');
+                h.textContent = (qi + 1) + '. ' + q.q;
+                step.appendChild(h);
+
+                const opts = document.createElement('div');
+                opts.className = 'quiz-options';
+                q.options.forEach((opt, oi) => {
+                    const id = `q${qi}_o${oi}`;
+                    const label = document.createElement('label');
+                    label.setAttribute('for', id);
+                    label.className = 'quiz-option-label';
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `q${qi}`;
+                    radio.id = id;
+                    radio.value = oi;
+                    radio.className = 'quiz-option-input';
+                    label.appendChild(radio);
+                    const span = document.createElement('span');
+                    span.textContent = opt.t;
+                    label.appendChild(span);
+                    opts.appendChild(label);
+                });
+
+                // container for validation messages specific to this step
+                const error = document.createElement('div');
+                error.className = 'quiz-error text-danger small mt-2';
+                error.style.display = 'none';
+                step.appendChild(opts);
+                step.appendChild(error);
+
+                quizContainer.appendChild(step);
+            });
+
+            // Navigation controls (Previous / Next / View result)
+            const nav = document.createElement('div');
+            nav.className = 'quiz-nav mt-3 d-flex justify-content-between';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.type = 'button';
+            prevBtn.className = 'btn btn-outline-secondary quiz-prev';
+            prevBtn.textContent = 'Anterior';
+            prevBtn.disabled = true;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.type = 'button';
+            nextBtn.className = 'btn btn-primary quiz-next';
+            nextBtn.textContent = 'Següent';
+
+            nav.appendChild(prevBtn);
+            nav.appendChild(nextBtn);
+            quizContainer.appendChild(nav);
+
+            function showStep(index, focus = true) {
+                const steps = quizContainer.querySelectorAll('.quiz-step');
+                steps.forEach((s, i) => { s.style.display = i === index ? 'block' : 'none'; });
+                currentStep = index;
+                prevBtn.disabled = currentStep === 0;
+                // also update the external/global Prev button under the test
+                const globalPrevBtn = document.getElementById('quizPrevGlobal');
+                if (globalPrevBtn) globalPrevBtn.disabled = currentStep === 0;
+                // update next button label on last step
+                nextBtn.textContent = currentStep === totalSteps - 1 ? 'Veure resultat' : 'Següent';
+                // focus first input in the step for accessibility (only when requested)
+                const firstInput = quizContainer.querySelector(`.quiz-step[data-step="${currentStep}"] input`);
+                if (firstInput && focus) firstInput.focus();
+                // hide any step error when showing
+                const err = quizContainer.querySelector(`.quiz-step[data-step="${currentStep}"] .quiz-error`);
+                if (err) err.style.display = 'none';
+            }
+            // make the showStep function available outside renderSteps
+            showStepFn = showStep;
+
+            function validateStep(index) {
+                const selected = quizForm.querySelector(`input[name="q${index}"]:checked`);
+                const err = quizContainer.querySelector(`.quiz-step[data-step="${index}"] .quiz-error`);
+                if (!selected) {
+                    if (err) {
+                        err.textContent = 'Selecciona una opció per continuar.';
+                        err.style.display = 'block';
+                    }
+                    return false;
+                }
+                if (err) { err.style.display = 'none'; }
+                return true;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) showStep(currentStep - 1);
+            });
+
+            nextBtn.addEventListener('click', () => {
+                // si no som a l'últim pas, validate i avança
+                if (currentStep < totalSteps - 1) {
+                    if (!validateStep(currentStep)) return;
+                    showStep(currentStep + 1);
+                } else {
+                    // últim pas: validate i mostra resultat
+                    if (!validateStep(currentStep)) return;
+                    const result = computeResult();
+                    showResult(result);
+                }
+            });
+        }
+
+        function computeResult() {
+            const form = quizForm;
+            const formData = new FormData(form);
+            // initialize scores
+            const scores = {};
+            youtubers.forEach(y => scores[y.id] = 0);
+
+            questions.forEach((q, qi) => {
+                const val = formData.get(`q${qi}`);
+                const sel = (typeof val === 'string') ? parseInt(val, 10) : null;
+                const option = q.options[sel] || q.options[0];
+                (option.adds || []).forEach(k => { if (scores[k] !== undefined) scores[k] += 1; });
+            });
+
+            // pick highest score
+            let best = null, bestScore = -1;
+            Object.keys(scores).forEach(k => {
+                if (scores[k] > bestScore) { best = k; bestScore = scores[k]; }
+            });
+            if (!best) best = youtubers[0].id;
+            return youtubers.find(y => y.id === best);
+        }
+
+        function showResult(result) {
+            quizResult.innerHTML = '';
+            const img = document.createElement('img');
+            img.src = result.banner;
+            img.alt = result.name + ' banner';
+            const h = document.createElement('h3'); h.textContent = `Ets ${result.name}!`;
+            const p = document.createElement('p'); p.textContent = result.desc;
+            const btns = document.createElement('div'); btns.className = 'mt-2';
+            const restart = document.createElement('button'); restart.className = 'btn btn-primary me-2'; restart.textContent = 'Reiniciar';
+            restart.addEventListener('click', () => {
+                quizForm.reset();
+                quizResult.classList.add('d-none');
+                if (typeof showStepFn === 'function') showStepFn(0);
+                const firstInput = quizContainer.querySelector('.quiz-step[data-step="0"] input');
+                if (firstInput) firstInput.focus();
+                window.scrollTo({ top: quizForm.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+            });
+            btns.appendChild(restart);
+
+            quizResult.appendChild(img);
+            quizResult.appendChild(h);
+            quizResult.appendChild(p);
+            quizResult.appendChild(btns);
+            quizResult.classList.remove('d-none');
+            // scroll to result
+            quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // initialize the step-based UI
+        renderSteps();
+    // ensure initial state is applied (disable global prev on step 0)
+    // do NOT focus the first input on initial render to avoid automatic scroll
+    if (typeof showStepFn === 'function') showStepFn(0, false);
+
+        // wire external Prev and Reset buttons placed under the test (in HTML)
+        const globalPrev = document.getElementById('quizPrevGlobal');
+        if (globalPrev) {
+            globalPrev.addEventListener('click', () => {
+                if (typeof showStepFn === 'function' && currentStep > 0) showStepFn(currentStep - 1);
+            });
+        }
+
+        // handle form submit (e.g., pressing Enter)
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // if not at last step, validate current and advance
+            if (typeof currentStep !== 'undefined' && currentStep < totalSteps - 1) {
+                const selected = quizForm.querySelector(`input[name="q${currentStep}"]:checked`);
+                if (selected) {
+                    const nextBtn = quizContainer.querySelector('.quiz-next');
+                    if (nextBtn) nextBtn.click();
+                } else {
+                    const err = quizContainer.querySelector(`.quiz-step[data-step="${currentStep}"] .quiz-error`);
+                    if (err) { err.textContent = 'Selecciona una opció per continuar.'; err.style.display = 'block'; }
+                }
+                return;
+            }
+            // else compute and show result
+            const result = computeResult();
+            showResult(result);
+        });
+
+        quizReset.addEventListener('click', () => {
+            quizForm.reset();
+            quizResult.classList.add('d-none');
+            // return to first question
+            if (typeof showStepFn === 'function') showStepFn(0);
+            // focus first input if present
+            const firstInput = quizContainer.querySelector('.quiz-step[data-step="0"] input');
+            if (firstInput) firstInput.focus();
+            // scroll to the quiz form
+            window.scrollTo({ top: quizForm.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+        });
+    })();
+
+    // ScrollTrigger animations for the Evolució timeline
+    (function setupTimelineOnFirstScroll() {
+        let timelineInitialized = false;
+
+        function initTimelineTriggers() {
+            try {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+                gsap.registerPlugin(ScrollTrigger);
+
+                // animate each timeline content from left/right or from below on small screens
+                const mq = window.matchMedia('(max-width: 767.98px)');
+                const container = document.querySelector('.timeline-fullwidth');
+                const items = Array.from(document.querySelectorAll('.timeline-item'));
+
+                // set initial invisible state
+                items.forEach(row => {
+                    const item = row.querySelector('.timeline-content');
+                    if (!item) return;
+                    const side = item.dataset.side || 'left';
+                    const isMobile = mq.matches;
+                    if (isMobile) {
+                        gsap.set(item, { y: 30, opacity: 0, immediateRender: false });
+                    } else {
+                        gsap.set(item, { x: side === 'left' ? -120 : 120, opacity: 0, immediateRender: false });
+                    }
+                });
+
+                // create a dot per item on the central line and animate it when the item appears
+                items.forEach(row => {
+                    const item = row.querySelector('.timeline-content');
+                    if (!item) return;
+
+                    // create dot placed in the fullwidth container
+                    const dot = document.createElement('div');
+                    dot.className = 'timeline-dot';
+                    if (container) container.appendChild(dot);
+
+                    // position function (update on refresh/resize)
+                    function positionDot() {
+                        const containerRect = container.getBoundingClientRect();
+                        const rowRect = row.getBoundingClientRect();
+                        const top = rowRect.top - containerRect.top + rowRect.height / 2;
+                        dot.style.top = (top) + 'px';
+                    }
+
+                    positionDot();
+
+                    // animate the content and the dot when in view
+                    const side = item.dataset.side || 'left';
+                    const isMobile = mq.matches;
+                    const animVars = isMobile ? { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' } : { x: 0, opacity: 1, duration: 0.7, ease: 'power2.out' };
+
+                    gsap.to(item, {
+                        ...(isMobile ? { y: 0 } : { x: 0 }),
+                        opacity: 1,
+                        duration: animVars.duration,
+                        ease: animVars.ease,
+                        immediateRender: false,
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%',
+                            toggleActions: 'play none none reverse',
+                            onEnter: () => gsap.to(dot, { scale: 1, duration: 0.35, ease: 'back.out(1.7)' }),
+                            onLeaveBack: () => gsap.to(dot, { scale: 0, duration: 0.2 })
+                        }
+                    });
+
+                    // reposition dot on refresh/resize
+                    ScrollTrigger.addEventListener('refreshInit', positionDot);
+                    window.addEventListener('resize', positionDot);
+                });
+
+                // refresh ScrollTrigger on resize after a small debounce
+                let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => ScrollTrigger.refresh(), 150); });
+            } catch (err) { console.warn('ScrollTrigger init error', err); }
+        }
+
+        function onFirstScroll() {
+            if (timelineInitialized) return;
+            timelineInitialized = true;
+            initTimelineTriggers();
+            window.removeEventListener('scroll', onFirstScroll);
+            window.removeEventListener('touchstart', onFirstScroll);
+        }
+
+        // wait for the user to scroll (or touch) before initialising the timeline animations
+        window.addEventListener('scroll', onFirstScroll, { passive: true });
+        window.addEventListener('touchstart', onFirstScroll, { passive: true });
+    })();
+
     botoAnterior.addEventListener('click', () => {
         if (megaOpen) {
             navigateMega(-1);
@@ -211,6 +621,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Ensure clicking the centered logo reloads the page to the top (remove any hash first)
+    try {
+        const centeredLogoLink = document.querySelector('.logo-container-custom a');
+        if (centeredLogoLink) {
+            centeredLogoLink.addEventListener('click', (e) => {
+                // allow normal middle-click / ctrl-click to open in new tab
+                if (e.metaKey || e.ctrlKey || e.button === 1) return;
+                e.preventDefault();
+                try { window.location.hash = ''; } catch (err) { /* ignore */ }
+                // reload the page; removing the hash above ensures we land at top
+                window.location.reload();
+            });
+        }
+    } catch (err) { /* silent */ }
+
     // Botons 'Play' sota cada flip-card: obre la "Mega-Targeta" centrada amb animació i enfosqueix la resta
     function openMegaCard(figure, name, frontSrc, backSrc, detailId) {
         // si GSAP no està disponible, fem un fallback senzill amb window.open
@@ -229,8 +654,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const overlay = document.createElement('div');
         overlay.className = 'mega-overlay';
 
-    const mega = document.createElement('div');
-    mega.className = 'mega-card p-4 bg-secondary text-white rounded-4 text-center container my-5';
+        const mega = document.createElement('div');
+        mega.className = 'mega-card p-4 bg-secondary text-white rounded-4 text-center container my-5';
         // posició inicial igual que la figura (fixed coordinates)
         mega.style.left = rect.left + 'px';
         mega.style.top = rect.top + 'px';
@@ -298,9 +723,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const targetLeft = (window.innerWidth - targetWidth) / 2;
         const targetTop = (window.innerHeight - targetHeight) / 2;
 
-    // Apliquem la classe CSS .dimmed al track per enfosquir/desenfocar les slides no actives
-    // Evitem usar GSAP per aplicar filtres en línia perquè deixin estils incrustats que poden causar "ghost blur".
-    // pista.classList.add('dimmed'); // ja s'ha afegit abans
+        // Apliquem la classe CSS .dimmed al track per enfosquir/desenfocar les slides no actives
+        // Evitem usar GSAP per aplicar filtres en línia perquè deixin estils incrustats que poden causar "ghost blur".
+        // pista.classList.add('dimmed'); // ja s'ha afegit abans
 
 
         // anima la mega-card des del rect d'origen al centre (width/height/left/top)
@@ -396,6 +821,88 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /* ---------------- Video carousel (thumbnails -> load iframe) ---------------- */
+    (function initVideoCarousel() {
+        const pistaV = document.querySelector('.carousel-track-videos');
+        if (!pistaV) return;
+
+        const wrapper = document.getElementById('videoCarousel');
+        const btnPrev = document.querySelector('.carousel-btn-prev-videos');
+        const btnNext = document.querySelector('.carousel-btn-next-videos');
+
+        const slidesInicialsV = Array.from(pistaV.querySelectorAll('.carousel-slide'));
+        const totalV = slidesInicialsV.length;
+
+        // clone twice for infinite loop (3 groups)
+        for (let i = 0; i < 2; i++) {
+            slidesInicialsV.forEach(s => {
+                const clone = s.cloneNode(true);
+                pistaV.appendChild(clone);
+            });
+        }
+
+        const diapositivesV = Array.from(pistaV.children);
+        const slideWidth = 288 + 24; // 18rem (288px) + gap 24
+
+        let indexV = totalV; // start at middle group
+        let enTransicioV = false;
+
+        // position initial
+        pistaV.style.transition = 'none';
+        pistaV.style.transform = `translateX(-${slideWidth * indexV}px)`;
+        setTimeout(() => { pistaV.style.transition = 'transform 0.5s ease-in-out'; updateFocusableThumbnails(); }, 50);
+
+        function updateFocusableThumbnails() {
+            const trackRect = pistaV.getBoundingClientRect();
+            // target iframes inside .video-thumb (now embeds)
+            const iframes = pistaV.querySelectorAll('.video-thumb iframe');
+            iframes.forEach(iframe => {
+                const slide = iframe.closest('.carousel-slide');
+                if (!slide) { iframe.tabIndex = -1; return; }
+                const rect = slide.getBoundingClientRect();
+                const visible = !(rect.right < trackRect.left || rect.left > trackRect.right);
+                // iframe is focusable by default, but ensure tabindex for keyboard navigation
+                iframe.tabIndex = visible ? 0 : -1;
+                // set a sensible title for screen readers (should already be set in HTML)
+                if (!iframe.getAttribute('title')) iframe.setAttribute('title', 'Vídeo');
+            });
+        }
+
+        function moureAlaSlideV(index) {
+            if (enTransicioV) return;
+            enTransicioV = true;
+            pistaV.style.transform = `translateX(-${slideWidth * index}px)`;
+            indexV = index;
+            setTimeout(() => {
+                if (indexV >= totalV * 2) {
+                    pistaV.style.transition = 'none';
+                    indexV = indexV - totalV;
+                    pistaV.style.transform = `translateX(-${slideWidth * indexV}px)`;
+                    setTimeout(() => { pistaV.style.transition = 'transform 0.5s ease-in-out'; updateFocusableThumbnails(); }, 50);
+                } else if (indexV < totalV) {
+                    pistaV.style.transition = 'none';
+                    indexV = indexV + totalV;
+                    pistaV.style.transform = `translateX(-${slideWidth * indexV}px)`;
+                    setTimeout(() => { pistaV.style.transition = 'transform 0.5s ease-in-out'; updateFocusableThumbnails(); }, 50);
+                }
+                enTransicioV = false;
+                updateFocusableThumbnails();
+            }, 500);
+        }
+
+        function moveToIndexV(targetIndex) {
+            if (!enTransicioV) moureAlaSlideV(targetIndex);
+            else setTimeout(() => moveToIndexV(targetIndex), 120);
+        }
+
+        btnNext.addEventListener('click', () => moureAlaSlideV(indexV + 1));
+        btnPrev.addEventListener('click', () => moureAlaSlideV(indexV - 1));
+
+        // keyboard + click handlers for thumbnails (lazy load iframe)
+        // update focusables on resize
+        window.addEventListener('resize', updateFocusableThumbnails);
+    })();
+
     // fallback que obre una nova finestra si GSAP no està disponible
     function openYtPopupFallback(name, frontSrc) {
         const features = 'width=700,height=600,menubar=no,toolbar=no,location=no,status=no,scrollbars=yes';
@@ -456,20 +963,20 @@ document.addEventListener('DOMContentLoaded', function () {
             s.style.transform = '';
         });
 
-    const centralIdx = totalDiapositives + idx;
-    const centralNode = pista.children[centralIdx];
-    if (centralNode) centralNode.classList.add('active-zoom');
-    megaState.activeNode = centralNode || targetSlide;
+        const centralIdx = totalDiapositives + idx;
+        const centralNode = pista.children[centralIdx];
+        if (centralNode) centralNode.classList.add('active-zoom');
+        megaState.activeNode = centralNode || targetSlide;
 
-    // Nota: no movem el carrusel des d'aquí per evitar salts bruscos; la navegació del carrusel
-    // es controla des de `navigateMega()` per reproduir el mateix comportament que les fletxes.
+        // Nota: no movem el carrusel des d'aquí per evitar salts bruscos; la navegació del carrusel
+        // es controla des de `navigateMega()` per reproduir el mateix comportament que les fletxes.
 
-    // Recull dades del slide objectiu
-    const playImg = targetSlide.querySelector('img[data-detail]');
-    const frontImg = targetSlide.querySelector('.flip-card-front img');
-    const detailId = playImg ? (playImg.dataset.detail || null) : null;
-    const name = playImg ? (playImg.dataset.youtuber || (frontImg ? frontImg.alt : 'Youtuber')) : (frontImg ? frontImg.alt : 'Youtuber');
-    const frontSrc = frontImg ? frontImg.src : '';
+        // Recull dades del slide objectiu
+        const playImg = targetSlide.querySelector('img[data-detail]');
+        const frontImg = targetSlide.querySelector('.flip-card-front img');
+        const detailId = playImg ? (playImg.dataset.detail || null) : null;
+        const name = playImg ? (playImg.dataset.youtuber || (frontImg ? frontImg.alt : 'Youtuber')) : (frontImg ? frontImg.alt : 'Youtuber');
+        const frontSrc = frontImg ? frontImg.src : '';
 
         // Mostrem o inserim el contingut. Si venim de navigateMega (opts.fromNavigate),
         // el loading ja està visible dins la mega-body; deixem que es mostri una mica
@@ -503,43 +1010,45 @@ document.addEventListener('DOMContentLoaded', function () {
             }, delay);
         } else {
             if (typeof gsap !== 'undefined') {
-                gsap.to(body.children, { duration: 0.22, y: -10, opacity: 0, stagger: 0.02, onComplete: () => {
-                    // Neteja i insereix loading
-                    body.innerHTML = '';
-                    const loadingDiv = document.createElement('div');
-                    loadingDiv.className = 'mega-loading';
-                    const loadingImg = document.createElement('img');
-                    loadingImg.src = './RECURSOS/youtubers/slider/loading.gif';
-                    loadingImg.alt = 'Carregant...';
-                    loadingDiv.appendChild(loadingImg);
-                    body.appendChild(loadingDiv);
-
-                    // simulem una petita càrrega abans d'inserir el nou contingut
-                    setTimeout(() => {
+                gsap.to(body.children, {
+                    duration: 0.22, y: -10, opacity: 0, stagger: 0.02, onComplete: () => {
+                        // Neteja i insereix loading
                         body.innerHTML = '';
-                        if (detailId) {
-                            const placeholder = document.getElementById(detailId);
-                            if (placeholder) {
-                                const clone = placeholder.cloneNode(true);
-                                clone.classList.remove('d-none');
-                                clone.removeAttribute('id');
-                                clone.classList.add('mega-detail-clone');
-                                body.appendChild(clone);
-                                gsap.from(clone.children, { y: -30, opacity: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out' });
+                        const loadingDiv = document.createElement('div');
+                        loadingDiv.className = 'mega-loading';
+                        const loadingImg = document.createElement('img');
+                        loadingImg.src = './RECURSOS/youtubers/slider/loading.gif';
+                        loadingImg.alt = 'Carregant...';
+                        loadingDiv.appendChild(loadingImg);
+                        body.appendChild(loadingDiv);
+
+                        // simulem una petita càrrega abans d'inserir el nou contingut
+                        setTimeout(() => {
+                            body.innerHTML = '';
+                            if (detailId) {
+                                const placeholder = document.getElementById(detailId);
+                                if (placeholder) {
+                                    const clone = placeholder.cloneNode(true);
+                                    clone.classList.remove('d-none');
+                                    clone.removeAttribute('id');
+                                    clone.classList.add('mega-detail-clone');
+                                    body.appendChild(clone);
+                                    gsap.from(clone.children, { y: -30, opacity: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out' });
+                                } else {
+                                    const p = document.createElement('div');
+                                    p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                                    body.appendChild(p);
+                                    gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
+                                }
                             } else {
                                 const p = document.createElement('div');
                                 p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                                 body.appendChild(p);
                                 gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
                             }
-                        } else {
-                            const p = document.createElement('div');
-                            p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
-                            body.appendChild(p);
-                            gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
-                        }
-                    }, 220);
-                }});
+                        }, 220);
+                    }
+                });
             } else {
                 // fallback sense GSAP: replace immediatament
                 body.innerHTML = '';
@@ -568,6 +1077,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 imgEl.click();
             }
         });
+
+        // No runtime fallback: icons are in the HTML and CSS provides hover/focus styles.
         // click obre la mega-targeta
         imgEl.addEventListener('click', (e) => {
             const figure = imgEl.closest('.carousel-slide');
@@ -592,4 +1103,118 @@ document.addEventListener('DOMContentLoaded', function () {
             imgEl.addEventListener('blur', () => { imgEl.src = original; });
         }
     });
+
+    /* ---------------- Capsule simple: swap clapboard and scroll ---------------- */
+    (function initCapsule() {
+        const capImg = document.getElementById('capsuleImg');
+        const targetSection = document.getElementById('youtubers');
+        if (!capImg || !targetSection) return;
+
+        const srcOpen = capImg.dataset.open;
+        const srcClosed = capImg.dataset.closed;
+        let clicked = false;
+
+        function doAction() {
+            // smooth scroll to youtubers
+            try {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } catch (e) {
+                window.scrollTo({ top: targetSection.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
+            }
+        }
+
+        function onActivate() {
+            if (clicked) return;
+            clicked = true;
+
+            // Respect reduced motion preference: do a simple swap + delayed scroll
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                if (srcClosed) capImg.src = srcClosed;
+                setTimeout(() => doAction(), 3000);
+                return;
+            }
+
+            // Animation timings (ms)
+            const ENLARGE = 600;
+            const HOLD = 1400; // while enlarged show the second image
+            const SHRINK = 600;
+            const TOTAL = ENLARGE + HOLD + SHRINK; // 2600
+            const SCROLL_DELAY = 3000; // user requested scroll after 3s
+            const SCALE = 1.6; // target scale when centered (moderate)
+
+            // Compute geometry to animate from current position toward center
+            const rect = capImg.getBoundingClientRect();
+            const vw = window.innerWidth || document.documentElement.clientWidth;
+            const vh = window.innerHeight || document.documentElement.clientHeight;
+            const centerX = vw / 2;
+            const centerY = vh / 2;
+            const imgCenterX = rect.left + rect.width / 2;
+            const imgCenterY = rect.top + rect.height / 2;
+            const deltaX = Math.round(centerX - imgCenterX);
+            const deltaY = Math.round(centerY - imgCenterY);
+
+            // Prepare element: fix it at its current coords so transforms are relative to that box
+            capImg.style.position = 'fixed';
+            capImg.style.left = rect.left + 'px';
+            capImg.style.top = rect.top + 'px';
+            capImg.style.width = rect.width + 'px';
+            capImg.style.height = rect.height + 'px';
+            capImg.style.margin = '0';
+            capImg.style.transformOrigin = 'center center';
+            capImg.style.pointerEvents = 'none';
+            capImg.style.zIndex = '99999';
+
+            // Start transition state
+            capImg.classList.add('animating');
+            // ensure initial transform is identity
+            capImg.style.transform = `translate(0px, 0px) scale(1)`;
+            // force reflow so the browser registers the starting point
+            void capImg.offsetWidth;
+
+            // Animate to center + scale
+            capImg.style.transition = 'transform 600ms cubic-bezier(.2,.9,.2,1)';
+            capImg.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${SCALE})`;
+
+            // After ENLARGE phase, swap image while still enlarged
+            setTimeout(() => {
+                if (srcClosed) capImg.src = srcClosed;
+            }, ENLARGE);
+
+            // After HOLD, animate back to original size/position
+            setTimeout(() => {
+                capImg.style.transform = `translate(0px, 0px) scale(1)`;
+            }, ENLARGE + HOLD);
+
+            // Cleanup after full animation: remove inline styles and animation class
+            setTimeout(() => {
+                capImg.classList.remove('animating');
+                // remove transition and transform (let CSS handle normal state)
+                capImg.style.transition = '';
+                capImg.style.transform = '';
+                // restore layout position by clearing fixed coordinates
+                capImg.style.position = '';
+                capImg.style.left = '';
+                capImg.style.top = '';
+                capImg.style.width = '';
+                capImg.style.height = '';
+                capImg.style.margin = '';
+                capImg.style.zIndex = '';
+                capImg.style.pointerEvents = '';
+            }, TOTAL + 80);
+
+            // Finally, after SCROLL_DELAY, perform the scroll to the youtubers section
+            setTimeout(() => {
+                doAction();
+            }, SCROLL_DELAY);
+        }
+
+        capImg.addEventListener('click', onActivate);
+        capImg.addEventListener('keydown', (ev) => {
+            const key = ev.key || ev.keyCode;
+            if (key === 'Enter' || key === ' ' || key === 'Spacebar' || key === 13 || key === 32) {
+                ev.preventDefault();
+                onActivate();
+            }
+        });
+    })();
 });

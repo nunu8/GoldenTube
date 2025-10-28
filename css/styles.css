@@ -92,6 +92,163 @@ html {
     padding-top: 150px;
 }
 
+/* ---------------- Hero creatiu (Inici) ---------------- */
+.hero-section {
+    background: linear-gradient(180deg, #0f0f14 0%, #15151a 45%, rgba(241,173,12,0.03) 100%);
+    color: #fff;
+}
+.hero-inner { padding: 3rem 0; }
+.hero-title {
+    font-family: 'Loubag', sans-serif;
+    color: #ffd36b;
+    text-shadow: 0 6px 20px rgba(246,164,12,0.12), 0 2px 6px rgba(0,0,0,0.6);
+    letter-spacing: 0.5px;
+}
+.hero-lead {
+    color: #e8e6e1;
+    max-width: 52ch;
+}
+.hero-ctas .btn {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+.hero-right .tv-wrap { width: 340px; max-width: 46vw; }
+.tv-frame {
+    background: linear-gradient(180deg,#111,#000);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 -8px 30px rgba(255,200,80,0.02);
+    position: relative;
+}
+.tv-screen { position: relative; width: 100%; height: 200px; overflow: hidden; border-radius: 8px; background: #000; }
+.tv-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+.tv-play {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 30% 30%, #ffd36b, #f6a40c);
+    color: #111;
+    font-size: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(246,164,12,0.25);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.tv-play:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 18px 40px rgba(246,164,12,0.32); }
+.tv-scanlines {
+    pointer-events: none;
+    position: absolute;
+    inset: 22px 22px auto 22px;
+    height: 200px;
+    border-radius: 8px;
+    background-image: repeating-linear-gradient(rgba(255,255,255,0.02) 0px, rgba(0,0,0,0.06) 1px, transparent 2px);
+    mix-blend-mode: overlay;
+    opacity: 0.22;
+}
+.tv-badge {
+    right: 8px;
+    bottom: -12px;
+    background: rgba(0,0,0,0.6);
+    color: #ffd36b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 991.98px) {
+    .hero-inner { gap: 1.5rem; }
+    .tv-frame { padding: 12px; }
+    .tv-screen { height: 180px; }
+    .tv-play { width: 64px; height: 64px; font-size: 24px; }
+}
+
+@media (max-width: 575.98px) {
+    .hero-title { font-size: 1.6rem; }
+    .hero-lead { font-size: 0.95rem; }
+    .hero-right { margin-top: 1rem; }
+    .hero-inner { padding: 2rem 0; }
+    .tv-screen { height: 160px; }
+}
+
+/* ---------------- Time Capsule / Polaroids ---------------- */
+.timecapsule { padding: 2.25rem 0; }
+.capsule-title {
+    font-family: 'Loubag', sans-serif;
+    color: #ffd36b;
+    text-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+.capsule-lead { color: #e6e3da; max-width: 56ch; }
+.capsule-controls { margin-top: 0.5rem; }
+.capsule-btn { box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+
+.polaroids-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; align-items: center; }
+.polaroid { width: 140px; background: #fff; padding: 0.6rem; border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.45); transform: rotate(var(--r, 0)) translate(var(--tx, 0), var(--ty, 0)); transition: transform 280ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms; }
+.polaroid img { width: 100%; height: auto; display: block; border-radius: 4px; }
+.polaroid figcaption { font-size: 0.72rem; color: #222; margin-top: 6px; text-align: center; }
+.polaroid:hover { transform: translateY(-8px) scale(1.03) rotate(var(--r,0)); box-shadow: 0 18px 36px rgba(0,0,0,0.6); }
+
+/* subtle floating animation for polaroids */
+@keyframes floaty {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+.polaroid { animation: floaty 4.5s ease-in-out infinite; }
+
+@media (max-width: 767.98px) {
+    .polaroids-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+    .polaroid { width: 120px; }
+}
+
+@media (max-width: 479.98px) {
+    .polaroids-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+    .polaroid { width: 110px; }
+}
+
+/* Simple capsule image */
+.capsule-simple { display: flex; justify-content: center; align-items: center; }
+.capsule-img {
+    width: 320px; max-width: 80vw; height: auto; cursor: pointer; border-radius: 8px;
+    transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 220ms;
+}
+.capsule-img:focus-visible { outline: 3px solid rgba(246,164,12,0.9); }
+
+@media (max-width: 575.98px) {
+    .capsule-img { width: 260px; }
+}
+
+/* Enlarged animation state for the capsule image.
+   When .enlarged is applied the image is positioned fixed centered and scaled up
+   so it appears above all content. The .animating class ensures we use a
+   longer transition while the animation runs. */
+.capsule-img.animating {
+    transition: transform 600ms cubic-bezier(.2,.9,.2,1), width 600ms ease, height 600ms ease, box-shadow 400ms ease;
+}
+.capsule-img.enlarged {
+    /* Visual treatment while enlarged - position/transform are handled by JS to
+       animate from the element's original location toward the center. */
+    z-index: 99999 !important;
+    box-shadow: 0 28px 90px rgba(0,0,0,0.55);
+    border-radius: 10px;
+    pointer-events: none; /* avoid accidental clicks while animating */
+}
+
+/* Slightly smaller scale on small screens is handled in JS via computed scale,
+   CSS fallback only reduces motion if requested. */
+@media (max-width: 575.98px) {
+    .capsule-img.enlarged { box-shadow: 0 18px 56px rgba(0,0,0,0.45); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .capsule-img.enlarged,
+    .capsule-img.animating { transition: none !important; transform: none !important; position: static !important; pointer-events: auto !important; }
+}
+
 /* Posicions personalitzades (Bootstrap no té top-60% ni start-48%) */
 .top-60 {
     top: 60%;
@@ -161,7 +318,8 @@ html {
 .carousel-btn {
     background: none;
     border: none;
-    z-index: 2600; /* Suficientment alt per sobre de .mega-overlay (2000) perquè siguin clicables quan la mega està oberta */
+    z-index: 2600;
+    /* Suficientment alt per sobre de .mega-overlay (2000) perquè siguin clicables quan la mega està oberta */
     cursor: pointer;
     opacity: 1;
     /* Mantén el centratge vertical base (Bootstrap usa translate-middle-y) */
@@ -249,16 +407,21 @@ html {
 }
 
 .mega-card {
-    background: inherit; /* s'adaptarà al fons establert en JS o al CSS */
+    background: inherit;
+    /* s'adaptarà al fons establert en JS o al CSS */
     color: #fff;
     border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     max-width: 90%;
-    width: 1000px; /* una mica més ample per donar presència */
-    max-height: 97vh; /* fer la mega una mica més alta (a prop del 100% de la pantalla) */
-    min-height: 75vh; /* assegurar una altura mínima més gran */
+    width: 1000px;
+    /* una mica més ample per donar presència */
+    max-height: 97vh;
+    /* fer la mega una mica més alta (a prop del 100% de la pantalla) */
+    min-height: 75vh;
+    /* assegurar una altura mínima més gran */
     overflow: auto;
-    position: fixed; /* per animar des del rect d'origen */
+    position: fixed;
+    /* per animar des del rect d'origen */
     will-change: transform, width, height;
 }
 
@@ -270,7 +433,7 @@ html {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: rgba(255,255,255,0.06);
+    background: rgba(255, 255, 255, 0.06);
     border: none;
     color: #fff;
     padding: 8px 10px;
@@ -308,23 +471,24 @@ html {
 /* -------------------------------------------------- */
 /* Mega-card loading i estils per al contingut clonat */
 /* -------------------------------------------------- */
-.mega-loading{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:100%;
-    height:100%;
-}
-.mega-loading img{
-    max-width:220px;
-    width:35%;
-    height:auto;
-    display:block;
+.mega-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
-.mega-body{
+.mega-loading img {
+    max-width: 220px;
+    width: 35%;
+    height: auto;
+    display: block;
+}
+
+.mega-body {
     padding: 1rem;
-    overflow:auto;
+    overflow: auto;
     /* Es deixa una mica d'espai per controls i marge superior/inferior
        respecte a la max-height de la targeta. */
     max-height: 100vh;
@@ -336,25 +500,32 @@ html {
     .mega-card {
         width: calc(100% - 2rem);
         max-height: 92vh;
-        min-height: 56vh; /* mòbils: una mica més gran però sensat */
+        min-height: 56vh;
+        /* mòbils: una mica més gran però sensat */
     }
-    .mega-body { max-height: 82vh; }
+
+    .mega-body {
+        max-height: 82vh;
+    }
 }
 
 /* Pantalles grans: augmentem lleugerament l'ample perquè la targeta es vegi més imponent */
 @media (min-width: 1400px) {
-    .mega-card { width: 1100px; }
+    .mega-card {
+        width: 1100px;
+    }
 }
 
-.mega-detail-clone{
-    width:100%;
+.mega-detail-clone {
+    width: 100%;
 }
-.mega-detail-clone img{
-    max-width:100%;
-    height:auto;
-    border-radius:8px;
-    display:block;
-    margin-bottom:12px;
+
+.mega-detail-clone img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 12px;
 }
 
 /* Estils per la nova estructura de la mega-targeta */
@@ -362,6 +533,7 @@ html {
     display: block;
     text-align: left;
 }
+
 .mega-detail .mega-profile {
     position: relative;
     margin-bottom: 1rem;
@@ -372,18 +544,235 @@ html {
     display: block;
     background: transparent;
 }
+
 .mega-detail .mega-banner {
     width: 100%;
-    height: auto; /* mantenim la proporció original i evitem tallar */
+    height: auto;
+    /* mantenim la proporció original i evitem tallar */
     display: block;
     object-position: center center;
     border-radius: 8px;
 }
+
 .mega-detail .mega-avatar {
-    display: none; /* l'avatar ja està incorporat al banner; ocultem regles antigues */
+    display: none;
+    /* l'avatar ja està incorporat al banner; ocultem regles antigues */
 }
-.mega-detail h3 { margin-top: 0.5rem; margin-bottom: 6px; }
-.mega-socials { display:flex; gap:12px; margin-top:12px; }
+
+.mega-detail h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 6px;
+}
+
+.mega-socials {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.mega-socials .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    background: transparent;
+    border-radius: 6px;
+}
+
+.mega-socials .social-icon {
+    width: 28px;
+    height: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    transition: transform 180ms cubic-bezier(.2, .8, .2, 1);
+    transform-origin: center center;
+}
+
+/* Hover / focus: escala lleu per a les icones (sense desplaçament de layout) */
+.mega-socials .social-link:hover .social-icon,
+.mega-socials .social-link:focus .social-icon {
+    transform: scale(1.15);
+}
+
+.mega-socials .social-link:focus {
+    outline: none;
+}
+
+.mega-socials .social-link:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mega-socials .social-icon {
+        transition: none;
+        transform: none !important;
+    }
+}
+
+/* Timeline styles */
+/* Timeline container spans full width and uses a dark background */
+.timeline-section {
+    background: #1e1e1e;
+    border-radius: 0;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.timeline-fullwidth {
+    padding: 2rem 0 4rem;
+}
+
+.timeline-line {
+    width: 4px;
+    background: #f6a40c;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+.timeline-content {
+    max-width: 520px;
+}
+
+.timeline-content h3 {
+    color: #071226;
+}
+
+.timeline-content p {
+    color: #1b2430;
+}
+
+/* On small screens, stack items and hide central line */
+
+@media (max-width: 767.98px) {
+    .timeline-line {
+        display: none;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .timeline-item .d-none.d-md-block {
+        display: none !important;
+    }
+}
+
+/* Improve contrast of cards */
+.timeline-content {
+    background: #ffffff;
+}
+
+/* Make sure timeline section stretches edge-to-edge: remove default container-side gap when needed */
+.timeline-section>.container-lg {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Tweak card spacing and remove extra rounding on big containers */
+.timeline-content {
+    border-radius: 6px;
+}
+
+/* Dots on the central timeline */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+    z-index: 3;
+}
+
+/* Video carousel styles */
+.carousel-track-videos .carousel-slide {
+    width: 18rem;
+}
+
+.video-thumb img {
+    cursor: pointer;
+    transition: transform 180ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.video-thumb img:focus,
+.video-thumb img:hover {
+    transform: scale(1.03);
+    outline: none;
+}
+
+.carousel-btn-prev-videos,
+.carousel-btn-next-videos {
+    background: transparent;
+    border: none;
+}
+
+@media (max-width: 767.98px) {
+    .carousel-track-videos .carousel-slide {
+        width: 100%;
+    }
+}
+
+/* Quiz styles */
+.quiz-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.quiz-question {
+    margin-bottom: 1rem;
+}
+
+.quiz-question h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.quiz-options label {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.quiz-options input[type="radio"] {
+    margin-right: 0.6rem;
+}
+
+.quiz-result img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .quiz-options {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+
+/* Estils de fallback per quan la icona no es carrega: mostrem text amb aspecte de botó */
+/* No fallback CSS required: icons are embedded in HTML. */
 
 /* Estils per la imatge Play sota cada flip-card
    - centrem la imatge just sota la targeta
@@ -393,11 +782,12 @@ html {
 img[data-detail] {
     display: block;
     margin: 0.8rem auto 0;
-    width: 5rem; /* mida reduïda */
+    width: 5rem;
+    /* mida reduïda */
     max-width: 100%;
     height: auto;
     cursor: pointer;
-    transition: transform 180ms cubic-bezier(.2,.8,.2,1);
+    transition: transform 180ms cubic-bezier(.2, .8, .2, 1);
     will-change: transform;
     transform-origin: center center;
 }

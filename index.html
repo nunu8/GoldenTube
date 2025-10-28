@@ -144,18 +144,18 @@
     <!-- CONTINGUT PRINCIPAL -->
     <!-- ========================================================= -->
     <main aria-label="Contenido principal de la página" class="mt-5 pt-4">
-        <!-- Secció d'inici -->
-        <section id="inici" class="container my-0">
-            <article class="p-4 bg-secondary text-white rounded-4 text-center">
-                <header>
-                    <h2>✨ Benvinguts a GoldenTube! ✨</h2>
-                </header>
-                <p>Reviveix l'Època Daurada de YouTube! 🎞️ Aquí celebrem la nostàlgia i el llegat dels Youtubers
-                    pioners que van definir una generació.</p>
-                <footer>
-                    <p>Submergeix-te en els inicis d'Internet!</p>
-                </footer>
-            </article>
+        <!-- Secció d'inici (Càpsula del Temps simple) -->
+        <section id="inici" class="hero-section py-5">
+            <div class="container hero-inner d-flex flex-column align-items-center text-center">
+                <h1 class="capsule-title display-4 mb-3">Obre el baúl dels records!</h1>
+                <p class="capsule-lead mb-0">Clac! Comença el viatge!</p>
+                <p class="capsule-lead mb-4">Fes clic a la claqueta per començar ▼</p>
+
+                <!-- Imatge que l'usuari substituirà: data attributes indiquen les rutes d'oberta i tancada -->
+                <div class="capsule-simple">
+                    <img id="capsuleImg" class="capsule-img" src="./RECURSOS/claqueta-oberta.png " alt="Claqueta oberta (fes clic)" tabindex="0" role="button" data-open="./RECURSOS/claqueta-oberta.png" data-closed="./RECURSOS/claqueta-tancada.png">
+                </div>
+            </div>
         </section>
 
         <!-- Secció "Youtubers" -->
@@ -196,7 +196,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="ElRubiusOMG" data-detail="detail-rubius" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play ElRubiusOMG">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="ElRubiusOMG"
+                                    data-detail="detail-rubius" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play ElRubiusOMG">
                             </figure>
 
                             <!-- Flip card 2 -->
@@ -215,7 +217,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="AuronPlay" data-detail="detail-auronplay" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play AuronPlay">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="AuronPlay"
+                                    data-detail="detail-auronplay"
+                                    data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play AuronPlay">
                             </figure>
 
                             <!-- Flip card 3 -->
@@ -234,7 +238,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Wismichu" data-detail="detail-wismichu" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Wismichu">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Wismichu"
+                                    data-detail="detail-wismichu"
+                                    data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Wismichu">
                             </figure>
 
                             <!-- Flip card 4 -->
@@ -253,7 +259,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Dulceida" data-detail="detail-dulceida" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Dulceida">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Dulceida"
+                                    data-detail="detail-dulceida"
+                                    data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Dulceida">
                             </figure>
 
                             <!-- Flip card 5 -->
@@ -272,7 +280,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Giorgio" data-detail="detail-giorgio" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Giorgio">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Giorgio"
+                                    data-detail="detail-giorgio" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play Giorgio">
                             </figure>
 
                             <!-- Flip card 6 -->
@@ -291,7 +301,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="TheGrefg" data-detail="detail-gref" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play TheGrefg">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="TheGrefg"
+                                    data-detail="detail-gref" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play TheGrefg">
                             </figure>
 
                             <!-- Flip card 7 -->
@@ -310,7 +322,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Laubalo" data-detail="detail-laubalo" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Laubalo">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Laubalo"
+                                    data-detail="detail-laubalo" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play Laubalo">
                             </figure>
 
                             <!-- Flip card 8 -->
@@ -329,7 +343,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Willyrex" data-detail="detail-willyrex" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Willyrex">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Willyrex"
+                                    data-detail="detail-willyrex"
+                                    data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Willyrex">
                             </figure>
 
                             <!-- Flip card 9 -->
@@ -348,7 +364,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="AlexBy11" data-detail="detail-alexby" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play AlexBy11">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="AlexBy11"
+                                    data-detail="detail-alexby" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play AlexBy11">
                             </figure>
 
                             <!-- Flip card 10 -->
@@ -366,7 +384,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Yuya" data-detail="detail-yuya" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Yuya">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Yuya"
+                                    data-detail="detail-yuya" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play Yuya">
                             </figure>
 
                             <!-- Flip card 11 -->
@@ -384,7 +404,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="8cho" data-detail="detail-ocho" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play 8cho">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="8cho"
+                                    data-detail="detail-ocho" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play 8cho">
                             </figure>
 
                             <!-- Flip card 12 -->
@@ -403,7 +425,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Vegetta777" data-detail="detail-vegetta" data-hover="./RECURSOS/youtubers/slider/play-hover.png" aria-label="Play Vegetta777">
+                                <img src="./RECURSOS/youtubers/slider/play.png" alt="Play" data-youtuber="Vegetta777"
+                                    data-detail="detail-vegetta" data-hover="./RECURSOS/youtubers/slider/play-hover.png"
+                                    aria-label="Play Vegetta777">
                             </figure>
                         </div>
                     </div>
@@ -413,17 +437,25 @@
             </article>
 
             <!-- Contenidor de detalls (per a cada youtuber) -->
-            <div id="youtuber-details" class="container my-0 p-4 bg-secondary text-white rounded-4 text-center">
+            <!-- S'està ocultant amb `d-none` perquè només s'utilitza com a placeholders per clonar
+              el contingut a la mega-targeta; no s'ha de mostrar a la pàgina principal. -->
+            <div id="youtuber-details" class="d-none container my-0 p-4 bg-secondary text-white rounded-4 text-center">
                 <!-- Cada placeholder conté una fitxa breu que serà clonada per la Mega-Targeta -->
                 <div id="detail-rubius" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/rubius-banner.png" alt="banner ElRubius">
+                            <img class="mega-banner img-fluid w-100" src="./RECURSOS/youtubers/slider/rubius-banner.png"
+                                alt="banner ElRubius">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -431,12 +463,18 @@
                 <div id="detail-auronplay" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/auronplay-banner.png" alt="banner AuronPlay">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/auronplay-banner.png" alt="banner AuronPlay">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -444,12 +482,18 @@
                 <div id="detail-wismichu" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/wismichu-banner.png" alt="banner Wismichu">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/wismichu-banner.png" alt="banner Wismichu">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -457,12 +501,18 @@
                 <div id="detail-dulceida" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/dulceida-banner.png" alt="banner Dulceida">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/dulceida-banner.png" alt="banner Dulceida">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -470,12 +520,18 @@
                 <div id="detail-giorgio" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/giorgio-banner.png" alt="banner Giorgio">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/giorgio-banner.png" alt="banner Giorgio">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -483,12 +539,18 @@
                 <div id="detail-gref" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/gref-banner.png" alt="banner TheGrefg">
+                            <img class="mega-banner img-fluid w-100" src="./RECURSOS/youtubers/slider/gref-banner.png"
+                                alt="banner TheGrefg">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -496,12 +558,18 @@
                 <div id="detail-laubalo" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/laubalo-banner.png" alt="banner Laubalo">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/laubalo-banner.png" alt="banner Laubalo">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -509,12 +577,18 @@
                 <div id="detail-willyrex" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/willyrex-banner.png" alt="banner Willyrex">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/willyrex-banner.png" alt="banner Willyrex">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -522,12 +596,18 @@
                 <div id="detail-alexby" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/alexby-banner.png" alt="banner AlexBy11">
+                            <img class="mega-banner img-fluid w-100" src="./RECURSOS/youtubers/slider/alexby-banner.png"
+                                alt="banner AlexBy11">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -535,12 +615,18 @@
                 <div id="detail-yuya" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/yuya-banner.png" alt="banner Yuya">
+                            <img class="mega-banner img-fluid w-100" src="./RECURSOS/youtubers/slider/yuya-banner.png"
+                                alt="banner Yuya">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -548,12 +634,18 @@
                 <div id="detail-ocho" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/ocho-banner.png" alt="banner 8cho">
+                            <img class="mega-banner img-fluid w-100" src="./RECURSOS/youtubers/slider/ocho-banner.png"
+                                alt="banner 8cho">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
@@ -561,82 +653,235 @@
                 <div id="detail-vegetta" class="d-none text-start">
                     <div class="mega-detail container p-3">
                         <div class="mega-profile mb-3">
-                            <img class="mega-banner img-fluid w-100 rounded" src="./RECURSOS/youtubers/slider/vegetta-banner.png" alt="banner Vegetta777">
+                            <img class="mega-banner img-fluid w-100"
+                                src="./RECURSOS/youtubers/slider/vegetta-banner.png" alt="banner Vegetta777">
                         </div>
                         <div class="mega-socials d-flex gap-2">
-                            <a href="#" class="btn btn-primary btn-sm">YouTube</a>
-                            <a href="#" class="btn btn-primary btn-sm">Instagram</a>
-                            <a href="#" class="btn btn-primary btn-sm">X/Twitter</a>
+                            <a href="#" class="social-link" aria-label="YouTube"><img
+                                    src="./RECURSOS/youtubers/slider/icons/youtube.png" alt="YouTube"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><img
+                                    src="./RECURSOS/youtubers/slider/icons/instagram.png" alt="Instagram"
+                                    class="social-icon"></a>
+                            <a href="#" class="social-link" aria-label="X"><img
+                                    src="./RECURSOS/youtubers/slider/icons/x.png" alt="X" class="social-icon"></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Secció "Evolució" -->
-        <section id="evolucio" class="container my-5">
-            <article class="p-4 bg-secondary text-white rounded-4 text-center">
-                <header>
-                    <h2>Evolució</h2>
-                </header>
-                <p>¿Tienes alguna pregunta o necesitas más información? No dudes en contactarnos.</p>
+        <!-- Secció "Evolució" (Timeline) -->
+        <section id="evolucio" class="timeline-section container-fluid my-5 py-5">
+            <div class="container-lg px-0 mb-4">
+                <div class="p-4 text-white text-center">
+                    <header>
+                        <h2 class="mb-1">Evolució</h2>
+                        <p class="mb-0">Des de l'origen fins avui: una línia del temps interactiva.</p>
+                    </header>
+                </div>
+            </div>
 
-                <!-- Formulari amb Bootstrap -->
-                <form action="#" method="post" aria-label="Formulario de contacto">
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <div class="timeline-fullwidth position-relative w-100">
+                <!-- línia central -->
+                <div class="timeline-line position-absolute top-0 start-50 translate-middle-x"></div>
+
+                <div class="container-lg">
+                    <!-- Item 1 (left) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1">
+                            <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="left">
+                                <h3 class="h5 mb-2">2005 — Naixement de la plataforma</h3>
+                                <p class="mb-0">Els primers vídeos casolans i l'explosió d'una comunitat creativa.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 d-none d-md-block"></div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Correo electrónico:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                    <!-- Item 2 (right) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1 d-none d-md-block"></div>
+                        <div class="col-12 col-md-6 order-md-2">
+                            <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="right">
+                                <h3 class="h5 mb-2">2008 — Cultura dels creators</h3>
+                                <p class="mb-0">Emergeixen figures influents i el format comença a professionalitzar-se.
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="mensaje" class="form-label">Mensaje:</label>
-                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                    <!-- Item 3 (left) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1">
+                            <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="left">
+                                <h3 class="h5 mb-2">2012 — Expansion i noves plataformes</h3>
+                                <p class="mb-0">Nous formats, monetizació i creixement massiu d'audiència.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 d-none d-md-block"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
+                    <!-- Item 4 (right) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1 d-none d-md-block"></div>
+                        <div class="col-12 col-md-6 order-md-2">
+                            <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="right">
+                                <h3 class="h5 mb-2">2016 — Consolidació de la professió</h3>
+                                <p class="mb-0">Equip de producció i contingut regular; nous formats llargs i
+                                    curtmetratges.</p>
+                            </div>
+                        </div>
+                    </div>
 
-                <footer class="mt-3">
-                    <p>Puedes también contactarnos por redes sociales.</p>
-                </footer>
-            </article>
+                    <!-- Item 5 (left) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1">
+                            <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="left">
+                                <h3 class="h5 mb-2">2019 — Diversificació</h3>
+                                <p class="mb-0">Streaming, col·laboracions i creació de marques personals.</p>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 order-md-2 d-none d-md-block"></div>
+                    </div>
+
+                    <!-- Item 6 (right) -->
+                    <div class="row timeline-item align-items-center mb-5">
+                        <div class="col-12 col-md-6 order-md-1 d-none d-md-block"></div>
+                        <div class="col-12 col-md-6 order-md-2">
+                            <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
+                                data-side="right">
+                                <h3 class="h5 mb-2">2024 — Actualitat</h3>
+                                <p class="mb-0">Contingut multiplataforma i comunitats globals; evolució constant.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Secció "Vídeos Virals" -->
+    <!-- Secció "Vídeos Virals" (Slider de thumbnails que carreguen iframes) -->
     <section id="videosvirals" class="container my-5">
         <article class="p-4 bg-secondary text-white rounded-4 text-center">
             <header>
                 <h2>Vídeos Virals</h2>
             </header>
-            <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
-            <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
-            <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener"
-                    title="Enlace externo a nuestra web">web oficial</a></p>
-            <footer>
-                <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
-            </footer>
+            <p class="mb-0">Els vídeos que van marcar una generació!</p>
+            <p class="mb-0">Abans de TikTok, abans d'Instagram Reels, hi havia YouTube.</p>
+            <p>Aquí trobaràs els vídeos que van fer història!</p>
+
+            <div class="carousel-wrapper position-relative mx-auto" style="max-width: calc(3 * 18rem + 2 * 1.5rem);">
+                <button class="carousel-btn carousel-btn-prev-videos position-absolute top-50 translate-middle-y"
+                    type="button" style="left: -4.5rem;">
+                    <img src="./RECURSOS/youtubers/fletxaesquerra.png" alt="Anterior" class="custom-carousel-icon">
+                </button>
+
+                <button class="carousel-btn carousel-btn-next-videos position-absolute top-50 translate-middle-y"
+                    type="button" style="right: -4.5rem;">
+                    <img src="./RECURSOS/youtubers/fletxadreta.png" alt="Següent" class="custom-carousel-icon">
+                </button>
+
+                <div id="videoCarousel" class="overflow-hidden position-relative" style="padding: 2rem 0;">
+                    <div class="carousel-track-videos d-flex gap-4">
+                        <!-- 6 vídeo thumbnails (3 visibles per vista) -->
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/V-swf7Fm8mo" title="Vídeo 1"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/ehEVU_po6-Y" title="Vídeo 2"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/VuXsSkjvP0M" title="Vídeo 3"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/v39NDP1IyyA" title="Vídeo 4"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/ZHPEQcMVRT4" title="Vídeo 5"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+
+                        <figure class="carousel-slide text-center flex-shrink-0 m-0">
+                            <div class="video-thumb"
+                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                                <iframe src="https://www.youtube.com/embed/EjxT88s_VvM" title="Vídeo 6"
+                                    style="width:100%;height:100%;border:0;"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen loading="lazy"></iframe>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
         </article>
     </section>
 
-    <!-- Secció "Test" -->
+    <!-- Secció "Test" (Quiz: Quin youtuber ets?) -->
     <section id="test" class="container my-5">
-        <article class="p-4 bg-secondary text-white rounded-4 text-center">
-            <header>
-                <h2>Quin youtuber ets?</h2>
+        <article class="p-4 bg-secondary text-white rounded-4 border border-light border-5">
+            <header class="text-center mb-3">
+                <h2 class="mb-1">Quin youtuber ets?</h2>
+                <p class="mb-5">Contesta unes quantes preguntes i et diré quin dels youtubers del site s'assembla més a
+                    tu.</p>
             </header>
-            <p>Somos una empresa dedicada a ofrecer soluciones dinámicas y efectivas para nuestros clientes.</p>
-            <p>Con años de experiencia, nuestro equipo está comprometido con la excelencia y la innovación.</p>
-            <p>Para más información visita nuestra <a href="https://www.ejemplo.com" target="_blank" rel="noopener"
-                    title="Enlace externo a nuestra web">web oficial</a></p>
-            <footer>
-                <time datetime="2020-10-08T15:13" pubdate> 3:13pm on October 8th, 2020 </time>
-            </footer>
+
+            <div id="quiz" class="quiz-container">
+                <!-- El formulari es genera/desplega per JS, però deixem estructura base accessible -->
+                <form id="quizForm" novalidate>
+                    <div id="quizQuestions" class="mb-3">
+                        <!-- preguntes injectades aqui -->
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-center mb-3">
+                        <button type="button" class="btn btn-outline-light" id="quizPrevGlobal">Anterior</button>
+                        <button type="button" class="btn btn-outline-light" id="quizReset">Reiniciar</button>
+                    </div>
+                </form>
+
+                <div id="quizResult" class="quiz-result d-none p-3 mt-3 bg-white text-dark rounded shadow-sm">
+                    <!-- result will be injected here -->
+                </div>
+            </div>
         </article>
     </section>
 
@@ -664,6 +909,7 @@
     <!-- GSAP -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
     <!-- JS extern -->
     <script src="./js/scripts.js"></script>
