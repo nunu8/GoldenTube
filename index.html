@@ -21,10 +21,9 @@
     <!-- ========================================================= -->
     <!-- LOGO CENTRAT -->
     <!-- ========================================================= -->
-    <div class="position-fixed start-50 translate-middle-x logo-container-custom"
-        style="top: 20px; z-index: 1001; pointer-events: none;">
-        <a href="index.html" class="d-block" style="pointer-events: all;">
-            <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img" style="height: 6.7rem;">
+    <div class="position-fixed start-50 translate-middle-x logo-container-custom">
+        <a href="index.html" class="d-block">
+            <img src="./RECURSOS/Logotip.png" alt="Logotip GoldenTube" class="logo-img">
         </a>
         <h1 class="visually-hidden">GoldenTube</h1>
     </div>
@@ -32,8 +31,7 @@
     <!-- CAPÇALERA PRINCIPAL -->
     <!-- ========================================================= -->
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top shadow bg-secondary fs-5 rounded-pill mt-5 mx-auto"
-            style="max-width: 90%; z-index: 1000;">
+        <nav class="navbar navbar-expand-lg fixed-top shadow bg-secondary fs-5 rounded-pill mt-5 mx-auto">
             <!--
             1.(navbar) Barra de navegació
             2.(navbar-expand-lg) Defineix a partir de quin punt de trencament (breakpoint) el menú es desplegarà horitzontalment lg = Large (≥992px de pantalla)
@@ -129,12 +127,11 @@
     <!-- ========================================================= -->
     <!-- BANNER PRINCIPAL -->
     <!-- ========================================================= -->
-    <section class="position-relative overflow-visible mx-auto pt-custom" style="max-width: 90%;">
+    <section class="position-relative overflow-visible mx-auto pt-custom banner-main">
         <img src="./RECURSOS/VHS.png" class="w-100 h-auto d-block mx-auto">
 
         <!-- Imatge centrada sobre el banner -->
-        <div class="position-absolute top-60 start-48 translate-middle banner-hover-container"
-            style="z-index: 10; cursor: pointer;">
+        <div class="position-absolute top-60 start-48 translate-middle banner-hover-container">
             <img src="./RECURSOS/fletxa.png" class="image-default d-block">
             <img src="./RECURSOS/youtubers/youtubersbanner.png" class="image-hover position-absolute">
         </div>
@@ -153,7 +150,9 @@
 
                 <!-- Imatge que l'usuari substituirà: data attributes indiquen les rutes d'oberta i tancada -->
                 <div class="capsule-simple">
-                    <img id="capsuleImg" class="capsule-img" src="./RECURSOS/claqueta-oberta.png " alt="Claqueta oberta (fes clic)" tabindex="0" role="button" data-open="./RECURSOS/claqueta-oberta.png" data-closed="./RECURSOS/claqueta-tancada.png">
+                    <img id="capsuleImg" class="capsule-img" src="./RECURSOS/claqueta-oberta.png "
+                        alt="Claqueta oberta (fes clic)" tabindex="0" role="button"
+                        data-open="./RECURSOS/claqueta-oberta.png" data-closed="./RECURSOS/claqueta-tancada.png">
                 </div>
             </div>
         </section>
@@ -164,37 +163,35 @@
                 <header>
                     <h2 class="mb-4">Youtubers</h2>
                 </header>
-                <p class="mb-0">Aquests són els creadors que van fer història quan ser youtuber encara no era una professió.</p>
+                <p class="mb-0">Aquests són els creadors que van fer història quan ser youtuber encara no era una
+                    professió.</p>
                 <p>Els que van créixer amb nosaltres i van demostrar que qualsevol podia brillar a Internet.</p>
 
-                <div class="carousel-wrapper position-relative mx-auto"
-                    style="max-width: calc(4 * 15rem + 3 * 1.5rem);">
+                <div class="carousel-wrapper position-relative mx-auto carousel-wrapper-custom">
                     <!-- Botons de control: els coloquem abans del carrousel al DOM per a un ordre de focus correcte -->
                     <button class="carousel-btn carousel-btn-prev position-absolute top-50 translate-middle-y"
-                        type="button" style="left: -5rem;">
+                        type="button">
                         <img src="./RECURSOS/youtubers/fletxaesquerra.png" alt="Anterior" class="custom-carousel-icon">
                     </button>
 
                     <button class="carousel-btn carousel-btn-next position-absolute top-50 translate-middle-y"
-                        type="button" style="right: -5rem;">
+                        type="button">
                         <img src="./RECURSOS/youtubers/fletxadreta.png" alt="Següent" class="custom-carousel-icon">
                     </button>
 
-                    <div id="youtuberCarousel" class="overflow-hidden position-relative" style="padding: 2rem 0;">
+                    <div id="youtuberCarousel" class="overflow-hidden position-relative youtuber-carousel">
                         <div class="carousel-track d-flex gap-4">
                             <!-- Flip card 1 -->
                             <figure class="carousel-slide text-center flex-shrink-0 m-0">
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/rubius.png"
-                                                alt="ElRubiusOMG"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/rubius.png"
+                                                alt="ElRubiusOMG">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/rubius-back.png"
-                                                alt="ElRubiusOMG darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/rubius-back.png"
+                                                alt="ElRubiusOMG darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -208,14 +205,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/auronplay.png"
-                                                alt="AuronPlay"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/auronplay.png"
+                                                alt="AuronPlay">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/auronplay-back.png"
-                                                alt="AuronPlay darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/auronplay-back.png"
+                                                alt="AuronPlay darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -229,14 +224,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/wismichu.png"
-                                                alt="Wismichu"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/wismichu.png"
+                                                alt="Wismichu">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/wismichu-back.png"
-                                                alt="Wismichu darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/wismichu-back.png"
+                                                alt="Wismichu darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -250,14 +243,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/dulceida.png"
-                                                alt="Dulceida"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/dulceida.png"
+                                                alt="Dulceida">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/dulceida-back.png"
-                                                alt="Dulceida darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/dulceida-back.png"
+                                                alt="Dulceida darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -271,14 +262,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/giorgio.png"
-                                                alt="Giorgio"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/giorgio.png"
+                                                alt="Giorgio">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/giorgio-back.png"
-                                                alt="Giorgio darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/giorgio-back.png"
+                                                alt="Giorgio darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -292,14 +281,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/gref.png"
-                                                alt="TheGrefg"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/gref.png"
+                                                alt="TheGrefg">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/gref-back.png"
-                                                alt="Gref darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/gref-back.png"
+                                                alt="Gref darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -313,14 +300,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/laubalo.png"
-                                                alt="Carla Laubalo"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/laubalo.png"
+                                                alt="Carla Laubalo">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/laubalo-back.png"
-                                                alt="Laubalo darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/laubalo-back.png"
+                                                alt="Laubalo darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -334,14 +319,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/willyrex.png"
-                                                alt="Willyrex"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/willyrex.png"
+                                                alt="Willyrex">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/willyrex-back.png"
-                                                alt="Willyrex darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/willyrex-back.png"
+                                                alt="Willyrex darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -355,14 +338,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/alexby.png"
-                                                alt="AlexBy11"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/alexby.png"
+                                                alt="AlexBy11">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/alexby-back.png"
-                                                alt="AlexBy darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/alexby-back.png"
+                                                alt="AlexBy darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -376,13 +357,11 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/yuya.png" alt="Yuya"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/yuya.png" alt="Yuya">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/yuya-back.png"
-                                                alt="Yuya darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/yuya-back.png"
+                                                alt="Yuya darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -396,13 +375,11 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/ocho.png" alt="8cho"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/ocho.png" alt="8cho">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/ocho-back.png"
-                                                alt="8cho darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/ocho-back.png"
+                                                alt="8cho darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -416,14 +393,12 @@
                                 <div class="flip-card" tabindex="0">
                                     <div class="flip-card-inner">
                                         <div class="flip-card-front">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/vegetta.png"
-                                                alt="Vegetta777"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/vegetta.png"
+                                                alt="Vegetta777">
                                         </div>
                                         <div class="flip-card-back">
-                                            <img class="img-fluid" src="./RECURSOS/youtubers/slider/vegetta-back.png"
-                                                alt="Vegetta darrere"
-                                                style="width: 15rem; height: auto; object-fit: cover; border-radius: 10px;">
+                                            <img class="img-fluid carousel-card-img" src="./RECURSOS/youtubers/slider/vegetta-back.png"
+                                                alt="Vegetta darrere">
                                         </div>
                                     </div>
                                 </div>
@@ -695,13 +670,14 @@
                             <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="left">
                                 <h3 class="h5 mb-2">2005 — Naixement: primer vídeo de YouTube</h3>
-                                <p class="mb-1">Els creadors publicaven clips gravats amb càmeres domèstiques. La plataforma es converteix en un espai on compartir tutorials, videoblogs i moments virals improvisats.</p>
-                                <p class="mb-2 small text-muted">Format: vídeos curts i personals; descoberta orgànica via enllaços i fòrums.</p>
+                                <p class="mb-1">Els creadors publicaven clips gravats amb càmeres domèstiques. La
+                                    plataforma es converteix en un espai on compartir tutorials, videoblogs i moments
+                                    virals improvisats.</p>
                                 <div class="timeline-media mt-2">
-                                    <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw" title="Primer vídeo de YouTube"
-                                    style="max-width: 100%;width: 100%;border-radius:6px;"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen loading="lazy"></iframe>
+                                    <iframe src="https://www.youtube.com/embed/jNQXAC9IVRw"
+                                        title="Primer vídeo de YouTube"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen loading="lazy"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -715,10 +691,11 @@
                             <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="right">
                                 <h3 class="h5 mb-2">2008 — Naixement de la cultura creator</h3>
-                                <p class="mb-1">Alguns canals comencen a guanyar audiències massives. Sorgeixen formats recurrents (reviews, let's play, reaccions) i apareix la figura del creador com a persona pública.</p>
-                                <p class="mb-2 small text-muted">Impacte: primeres col·laboracions i comunitats de fans organitzades.</p>
+                                <p class="mb-1">Alguns canals comencen a guanyar audiències massives. Sorgeixen formats
+                                    recurrents (reviews, let's play, reaccions) i apareix la figura del creador com a
+                                    persona pública.</p>
                                 <div class="timeline-media mt-2">
-                                    <img src="./RECURSOS/evolucio/2008.jpg" alt="2008 cultura creators" style="max-width:100%;width:100%;border-radius:6px;">
+                                    <img src="./RECURSOS/evolucio/2008.jpg" alt="2008 cultura creators">
                                 </div>
                             </div>
                         </div>
@@ -730,10 +707,11 @@
                             <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="left">
                                 <h3 class="h5 mb-2">2012 — Expansió i monetització</h3>
-                                <p class="mb-1">Arriben opcions de monetització i els creadors comencen a professionalitzar els seus canals amb patrocinis i publicitat. També comencen a aparèixer plataformes complementàries i noves formes de consum.</p>
-                                <p class="mb-2 small text-muted">Connexió amb audiències globals i creixement d'equips de producció.</p>
+                                <p class="mb-1">Arriben opcions de monetització i els creadors comencen a
+                                    professionalitzar els seus canals amb patrocinis i publicitat. També comencen a
+                                    aparèixer plataformes complementàries i noves formes de consum.</p>
                                 <div class="timeline-media mt-2">
-                                    <img src="./RECURSOS/evolucio/2012.jpg" alt="2012 expansio" style="max-width:100%;width:100%;border-radius:6px;">
+                                    <img src="./RECURSOS/evolucio/2012.jpg" alt="2012 expansio">
                                 </div>
                             </div>
                         </div>
@@ -747,10 +725,10 @@
                             <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="right">
                                 <h3 class="h5 mb-2">2016 — Professionalització i formats llargs</h3>
-                                <p class="mb-1">Els canals incorporen equips i programació estable: s'estrenen formats de llarga durada, s'inverteix en producció i sorgeixen xarxes de creadors.</p>
-                                <p class="mb-2 small text-muted">Resultat: contingut més variat, produccions més pulides i models de negoci consolidades.</p>
+                                <p class="mb-1">Els canals incorporen equips i programació estable: s'estrenen formats
+                                    de llarga durada, s'inverteix en producció i sorgeixen xarxes de creadors.</p>
                                 <div class="timeline-media mt-2">
-                                    <img src="./RECURSOS/evolucio/2016.jpg" alt="2016 professionalització" style="max-width:100%;width:100%;border-radius:6px;">
+                                    <img src="./RECURSOS/evolucio/2016.jpg" alt="2016 professionalització">
                                 </div>
                             </div>
                         </div>
@@ -762,10 +740,10 @@
                             <div class="timeline-content ms-md-auto text-md-end p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="left">
                                 <h3 class="h5 mb-2">2019 — Diversificació: streaming i marques</h3>
-                                <p class="mb-1">El streaming en directe es converteix en pilar, les col·laboracions augmenten i els creadors llancen productes, línies de roba i negocis propis.</p>
-                                <p class="mb-2 small text-muted">Efecte: comunitats més estretes i ingressos diversificats.</p>
+                                <p class="mb-1">El streaming en directe es converteix en pilar, les col·laboracions
+                                    augmenten i els creadors llancen productes, línies de roba i negocis propis.</p>
                                 <div class="timeline-media mt-2">
-                                    <img src="./RECURSOS/evolucio/2019.jpg" alt="2019 diversificacio" style="max-width:100%;width:100%;border-radius:6px;">
+                                    <img src="./RECURSOS/evolucio/2019.jpg" alt="2019 diversificacio">
                                 </div>
                             </div>
                         </div>
@@ -779,10 +757,11 @@
                             <div class="timeline-content me-md-auto text-md-start p-4 bg-white text-dark rounded shadow-sm"
                                 data-side="right">
                                 <h3 class="h5 mb-2">2025 — Actualitat: contingut multiplataforma</h3>
-                                <p class="mb-1">Avui els creadors treballen a YouTube, TikTok, Twitch i altres canals; el contingut s'adapta per auditories curtes i formats virals, però també per comunitats fidels.</p>
-                                <p class="mb-2 small text-muted">Tendències: short-form, col·laboracions internacionals i experiències de subscripció.</p>
+                                <p class="mb-1">Avui els creadors treballen a YouTube, TikTok, Twitch i altres canals;
+                                    el contingut s'adapta per auditories curtes i formats virals, però també per
+                                    comunitats fidels.</p>
                                 <div class="timeline-media mt-2">
-                                    <img src="./RECURSOS/evolucio/2025.png" alt="2025 actualitat" style="max-width:100%;width:100%;">
+                                    <img src="./RECURSOS/evolucio/2025.png" alt="2025 actualitat">
                                 </div>
                             </div>
                         </div>
@@ -803,75 +782,63 @@
             <p class="mb-0">Abans de TikTok, abans d'Instagram Reels, hi havia YouTube.</p>
             <p>Aquí trobaràs els vídeos que van fer història!</p>
 
-            <div class="carousel-wrapper position-relative mx-auto" style="max-width: calc(3 * 18rem + 2 * 1.5rem);">
+            <div class="carousel-wrapper position-relative mx-auto carousel-wrapper-videos-custom">
                 <button class="carousel-btn carousel-btn-prev-videos position-absolute top-50 translate-middle-y"
-                    type="button" style="left: -4.5rem;">
+                    type="button">
                     <img src="./RECURSOS/youtubers/fletxaesquerra.png" alt="Anterior" class="custom-carousel-icon">
                 </button>
 
                 <button class="carousel-btn carousel-btn-next-videos position-absolute top-50 translate-middle-y"
-                    type="button" style="right: -4.5rem;">
+                    type="button">
                     <img src="./RECURSOS/youtubers/fletxadreta.png" alt="Següent" class="custom-carousel-icon">
                 </button>
 
-                <div id="videoCarousel" class="overflow-hidden position-relative" style="padding: 2rem 0;">
+                <div id="videoCarousel" class="overflow-hidden position-relative" >
                     <div class="carousel-track-videos d-flex gap-4">
                         <!-- 6 vídeo thumbnails (3 visibles per vista) -->
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/V-swf7Fm8mo" title="Vídeo 1"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
                         </figure>
 
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/ehEVU_po6-Y" title="Vídeo 2"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
                         </figure>
 
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/VuXsSkjvP0M" title="Vídeo 3"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
                         </figure>
 
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/v39NDP1IyyA" title="Vídeo 4"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
                         </figure>
 
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/ZHPEQcMVRT4" title="Vídeo 5"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
                         </figure>
 
                         <figure class="carousel-slide text-center flex-shrink-0 m-0">
-                            <div class="video-thumb"
-                                style="width:18rem;height:10.5rem;overflow:hidden;border-radius:10px;background:#000;">
+                            <div class="video-thumb">
                                 <iframe src="https://www.youtube.com/embed/EjxT88s_VvM" title="Vídeo 6"
-                                    style="width:100%;height:100%;border:0;"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen loading="lazy"></iframe>
                             </div>
@@ -918,8 +885,7 @@
     <!-- ========================================================= -->
     <footer aria-label="Peu de la pàgina" class="text-center py-4 bg-secondary text-white mt-5 fs-6">
         <a href="index.html" class="fotopeudepagina">
-            <img src="./RECURSOS/Logotip2.png" alt="Logotip GoldenTube" title="Torna a la pàgina d'inici"
-                style="height: 3rem;">
+            <img src="./RECURSOS/Logotip2.png" alt="Logotip GoldenTube" title="Torna a la pàgina d'inici" class="footer-logo">
         </a>
         <div class="my-4">
             <a href="#termes" class="footer-link text-primary text-decoration-none mx-3">Termes i Condicions</a>

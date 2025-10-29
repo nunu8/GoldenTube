@@ -94,33 +94,59 @@ html {
 
 /* ---------------- Hero creatiu (Inici) ---------------- */
 .hero-section {
-    background: linear-gradient(180deg, #0f0f14 0%, #15151a 45%, rgba(241,173,12,0.03) 100%);
+    background: linear-gradient(180deg, #0f0f14 0%, #15151a 45%, rgba(241, 173, 12, 0.03) 100%);
     color: #fff;
 }
-.hero-inner { padding: 3rem 0; }
+
+.hero-inner {
+    padding: 3rem 0;
+}
+
 .hero-title {
     font-family: 'Loubag', sans-serif;
     color: #ffd36b;
-    text-shadow: 0 6px 20px rgba(246,164,12,0.12), 0 2px 6px rgba(0,0,0,0.6);
+    text-shadow: 0 6px 20px rgba(246, 164, 12, 0.12), 0 2px 6px rgba(0, 0, 0, 0.6);
     letter-spacing: 0.5px;
 }
+
 .hero-lead {
     color: #e8e6e1;
     max-width: 52ch;
 }
+
 .hero-ctas .btn {
-    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
 }
-.hero-right .tv-wrap { width: 340px; max-width: 46vw; }
+
+.hero-right .tv-wrap {
+    width: 340px;
+    max-width: 46vw;
+}
+
 .tv-frame {
-    background: linear-gradient(180deg,#111,#000);
+    background: linear-gradient(180deg, #111, #000);
     border-radius: 12px;
     padding: 18px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 -8px 30px rgba(255,200,80,0.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), inset 0 -8px 30px rgba(255, 200, 80, 0.02);
     position: relative;
 }
-.tv-screen { position: relative; width: 100%; height: 200px; overflow: hidden; border-radius: 8px; background: #000; }
-.tv-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+
+.tv-screen {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.tv-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.95;
+}
+
 .tv-play {
     position: absolute;
     width: 72px;
@@ -134,92 +160,205 @@ html {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 12px 30px rgba(246,164,12,0.25);
+    box-shadow: 0 12px 30px rgba(246, 164, 12, 0.25);
     transition: transform 180ms ease, box-shadow 180ms ease;
 }
-.tv-play:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 18px 40px rgba(246,164,12,0.32); }
+
+.tv-play:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(246, 164, 12, 0.32);
+}
+
 .tv-scanlines {
     pointer-events: none;
     position: absolute;
     inset: 22px 22px auto 22px;
     height: 200px;
     border-radius: 8px;
-    background-image: repeating-linear-gradient(rgba(255,255,255,0.02) 0px, rgba(0,0,0,0.06) 1px, transparent 2px);
+    background-image: repeating-linear-gradient(rgba(255, 255, 255, 0.02) 0px, rgba(0, 0, 0, 0.06) 1px, transparent 2px);
     mix-blend-mode: overlay;
     opacity: 0.22;
 }
+
 .tv-badge {
     right: 8px;
     bottom: -12px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: #ffd36b;
     padding: 6px 10px;
     border-radius: 6px;
     font-weight: 700;
     font-size: 0.75rem;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 @media (max-width: 991.98px) {
-    .hero-inner { gap: 1.5rem; }
-    .tv-frame { padding: 12px; }
-    .tv-screen { height: 180px; }
-    .tv-play { width: 64px; height: 64px; font-size: 24px; }
+    .hero-inner {
+        gap: 1.5rem;
+    }
+
+    .tv-frame {
+        padding: 12px;
+    }
+
+    .tv-screen {
+        height: 180px;
+    }
+
+    .tv-play {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 575.98px) {
-    .hero-title { font-size: 1.6rem; }
-    .hero-lead { font-size: 0.95rem; }
-    .hero-right { margin-top: 1rem; }
-    .hero-inner { padding: 2rem 0; }
-    .tv-screen { height: 160px; }
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-lead {
+        font-size: 0.95rem;
+    }
+
+    .hero-right {
+        margin-top: 1rem;
+    }
+
+    .hero-inner {
+        padding: 2rem 0;
+    }
+
+    .tv-screen {
+        height: 160px;
+    }
 }
 
 /* ---------------- Time Capsule / Polaroids ---------------- */
-.timecapsule { padding: 2.25rem 0; }
+.timecapsule {
+    padding: 2.25rem 0;
+}
+
 .capsule-title {
     font-family: 'Loubag', sans-serif;
     color: #ffd36b;
-    text-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
-.capsule-lead { color: #e6e3da; max-width: 56ch; }
-.capsule-controls { margin-top: 0.5rem; }
-.capsule-btn { box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
 
-.polaroids-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; align-items: center; }
-.polaroid { width: 140px; background: #fff; padding: 0.6rem; border-radius: 6px; box-shadow: 0 12px 30px rgba(0,0,0,0.45); transform: rotate(var(--r, 0)) translate(var(--tx, 0), var(--ty, 0)); transition: transform 280ms cubic-bezier(.2,.9,.2,1), box-shadow 200ms; }
-.polaroid img { width: 100%; height: auto; display: block; border-radius: 4px; }
-.polaroid figcaption { font-size: 0.72rem; color: #222; margin-top: 6px; text-align: center; }
-.polaroid:hover { transform: translateY(-8px) scale(1.03) rotate(var(--r,0)); box-shadow: 0 18px 36px rgba(0,0,0,0.6); }
+.capsule-lead {
+    color: #e6e3da;
+    max-width: 56ch;
+}
+
+.capsule-controls {
+    margin-top: 0.5rem;
+}
+
+.capsule-btn {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.polaroids-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.polaroid {
+    width: 140px;
+    background: #fff;
+    padding: 0.6rem;
+    border-radius: 6px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    transform: rotate(var(--r, 0)) translate(var(--tx, 0), var(--ty, 0));
+    transition: transform 280ms cubic-bezier(.2, .9, .2, 1), box-shadow 200ms;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.polaroid figcaption {
+    font-size: 0.72rem;
+    color: #222;
+    margin-top: 6px;
+    text-align: center;
+}
+
+.polaroid:hover {
+    transform: translateY(-8px) scale(1.03) rotate(var(--r, 0));
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.6);
+}
 
 /* subtle floating animation for polaroids */
 @keyframes floaty {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
-.polaroid { animation: floaty 4.5s ease-in-out infinite; }
+
+.polaroid {
+    animation: floaty 4.5s ease-in-out infinite;
+}
 
 @media (max-width: 767.98px) {
-    .polaroids-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-    .polaroid { width: 120px; }
+    .polaroids-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .polaroid {
+        width: 120px;
+    }
 }
 
 @media (max-width: 479.98px) {
-    .polaroids-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
-    .polaroid { width: 110px; }
+    .polaroids-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.4rem;
+    }
+
+    .polaroid {
+        width: 110px;
+    }
 }
 
 /* Simple capsule image */
-.capsule-simple { display: flex; justify-content: center; align-items: center; }
-.capsule-img {
-    width: 320px; max-width: 80vw; height: auto; cursor: pointer; border-radius: 8px;
-    transition: transform 260ms cubic-bezier(.2,.9,.2,1), opacity 220ms;
+.capsule-simple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.capsule-img:focus-visible { outline: 3px solid rgba(246,164,12,0.9); }
+
+.capsule-img {
+    width: 320px;
+    max-width: 80vw;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 260ms cubic-bezier(.2, .9, .2, 1), opacity 220ms;
+}
+
+.capsule-img:focus-visible {
+    outline: 3px solid rgba(246, 164, 12, 0.9);
+}
 
 @media (max-width: 575.98px) {
-    .capsule-img { width: 260px; }
+    .capsule-img {
+        width: 260px;
+    }
 }
 
 /* Enlarged animation state for the capsule image.
@@ -227,26 +366,145 @@ html {
    so it appears above all content. The .animating class ensures we use a
    longer transition while the animation runs. */
 .capsule-img.animating {
-    transition: transform 600ms cubic-bezier(.2,.9,.2,1), width 600ms ease, height 600ms ease, box-shadow 400ms ease;
+    transition: transform 600ms cubic-bezier(.2, .9, .2, 1), width 600ms ease, height 600ms ease, box-shadow 400ms ease;
 }
+
 .capsule-img.enlarged {
     /* Visual treatment while enlarged - position/transform are handled by JS to
        animate from the element's original location toward the center. */
     z-index: 99999 !important;
-    box-shadow: 0 28px 90px rgba(0,0,0,0.55);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55);
     border-radius: 10px;
-    pointer-events: none; /* avoid accidental clicks while animating */
+    pointer-events: none;
+    /* avoid accidental clicks while animating */
 }
+
+/* Moved inline styles from HTML -> helper utility classes */
+.logo-container-custom {
+    top: 20px;
+    z-index: 1001;
+    pointer-events: none;
+}
+.logo-container-custom a {
+    pointer-events: all;
+}
+.logo-img {
+    height: 6.7rem;
+}
+
+/* Nav sizing previously inline */
+.navbar.fixed-top {
+    max-width: 90%;
+    z-index: 1000;
+}
+
+/* Banner wrapper sizing */
+.banner-main {
+    max-width: 90%;
+}
+
+.banner-hover-container {
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* Carousel layout helpers moved from inline */
+.carousel-wrapper-custom {
+    max-width: calc(4 * 15rem + 3 * 1.5rem);
+}
+.carousel-btn-prev { left: -5rem; }
+.carousel-btn-next { right: -5rem; }
+.youtuber-carousel { padding: 2rem 0; }
+
+/* Reusable image style used by the carousel flip cards */
+.carousel-card-img {
+    width: 15rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Video carousel (thumbnails) styles moved from inline */
+.carousel-wrapper-videos-custom {
+    max-width: calc(3 * 18rem + 2 * 1.5rem);
+    width: calc(3 * 18rem + 2 * 1.5rem);
+    max-width: 100%;
+    margin: 3rem auto;
+    /* allow arrows to sit outside the track without being clipped */
+    overflow: visible;
+    position: relative;
+}
+.carousel-btn-prev-videos { left: -4.5rem; z-index: 3000; }
+.carousel-btn-next-videos { right: -4.5rem; z-index: 3000; }
+
+/* Make video carousel arrows animate like the youtubers carousel arrows */
+.carousel-btn-prev-videos:hover {
+    transform: translateY(-50%) translateX(-8px);
+}
+.carousel-btn-next-videos:hover {
+    transform: translateY(-50%) translateX(8px);
+}
+.carousel-btn-prev-videos:hover .custom-carousel-icon {
+    transform: translateX(-6px);
+}
+.carousel-btn-next-videos:hover .custom-carousel-icon {
+    transform: translateX(6px);
+}
+.video-thumb {
+    width: 18rem;
+    height: 10.5rem;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #000;
+}
+.video-thumb iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* Ensure the video track lays out slides in a row and transitions smoothly */
+.carousel-track-videos {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+/* Responsive: on smaller screens show 1 slide (wrapper becomes full width) */
+@media (max-width: 991.98px) {
+    .carousel-wrapper-videos-custom { width: 100%; padding: 0 1rem; }
+}
+
+/* Footer logo sizing moved from HTML */
+.footer-logo { height: 3rem; }
+
+/* Mega / fallback detail image class used when inserting HTML from JS */
+.mega-detail-img { max-width: 100%; height: auto; border-radius: 8px; display: block; }
+
+/* Popup (opened via JS fallback) styles */
+.popup-body { background:#111; color:#fff; font-family: system-ui; padding:16px; }
+.popup-note { margin-top: 12px; }
 
 /* Slightly smaller scale on small screens is handled in JS via computed scale,
    CSS fallback only reduces motion if requested. */
 @media (max-width: 575.98px) {
-    .capsule-img.enlarged { box-shadow: 0 18px 56px rgba(0,0,0,0.45); }
+    .capsule-img.enlarged {
+        box-shadow: 0 18px 56px rgba(0, 0, 0, 0.45);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .capsule-img.enlarged,
-    .capsule-img.animating { transition: none !important; transform: none !important; position: static !important; pointer-events: auto !important; }
+    .capsule-img.animating {
+        transition: none !important;
+        transform: none !important;
+        position: static !important;
+        pointer-events: auto !important;
+    }
 }
 
 /* Posicions personalitzades (Bootstrap no té top-60% ni start-48%) */
@@ -637,7 +895,7 @@ html {
 }
 
 .timeline-content {
-    max-width: 520px;
+    max-width: 100%;
 }
 
 .timeline-content h3 {
@@ -646,6 +904,37 @@ html {
 
 .timeline-content p {
     color: #1b2430;
+}
+
+
+
+/* Constrain timeline media so they fit inside the timeline-content
+   and never overflow the timeline item. We set a sensible max-width
+   (adjustable) and center the media. This keeps videos/images smaller
+   and visually consistent inside each item. */
+.timeline-media {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px; /* fits comfortably inside the .timeline-content */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.timeline-media iframe,
+.timeline-media video,
+.timeline-media img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16 / 9;
+    border-radius: 6px;
+}
+
+@media (min-width: 1200px) {
+    /* On very wide screens allow slightly larger media */
+    .timeline-media { max-width: 520px; }
 }
 
 /* On small screens, stack items and hide central line */
@@ -768,6 +1057,7 @@ html {
     font-size: 1.5rem;
     margin-bottom: 0.6rem;
 }
+
 .quiz-result-photo {
     display: block;
     margin: 0.4rem auto 0;
@@ -775,7 +1065,7 @@ html {
     width: 30%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* Remove white box behind the quiz result photo and inherit the article's text color */

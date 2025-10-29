@@ -464,9 +464,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // initialize the step-based UI
         renderSteps();
-    // ensure initial state is applied (disable global prev on step 0)
-    // do NOT focus the first input on initial render to avoid automatic scroll
-    if (typeof showStepFn === 'function') showStepFn(0, false);
+        // ensure initial state is applied (disable global prev on step 0)
+        // do NOT focus the first input on initial render to avoid automatic scroll
+        if (typeof showStepFn === 'function') showStepFn(0, false);
 
         // wire external Prev and Reset buttons placed under the test (in HTML)
         const globalPrev = document.getElementById('quizPrevGlobal');
@@ -784,7 +784,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                         // fallback: si no hi ha placeholder o detailId, mostrem plantilla simple
                         const p = document.createElement('div');
-                        p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                        p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" class="mega-detail-img"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                         body.appendChild(p);
                         if (typeof gsap !== 'undefined') gsap.from(body.children, { y: -20, opacity: 0, duration: 0.45, stagger: 0.03, ease: 'power2.out' });
                     }
@@ -928,7 +928,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         const safeName = name || 'Youtuber';
-        const content = `<!doctype html><html lang="ca"><head><meta charset="utf-8"><title>${safeName} — Detalls</title></head><body style="background:#111;color:#fff;font-family:system-ui;padding:16px"><h2>${safeName}</h2><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><div style="margin-top:12px">Afegeix aquí la informació del youtuber.</div></body></html>`;
+    const content = `<!doctype html><html lang="ca"><head><meta charset="utf-8"><title>${safeName} — Detalls</title><link rel="stylesheet" href="./css/styles.css"></head><body class="popup-body"><h2>${safeName}</h2><img src="${frontSrc}" class="mega-detail-img"><div class="popup-note">Afegeix aquí la informació del youtuber.</div></body></html>`;
         win.document.open(); win.document.write(content); win.document.close();
     }
 
@@ -1020,7 +1020,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 // fallback content
                 const p = document.createElement('div');
-                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" class="mega-detail-img"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                 body.appendChild(p);
                 if (typeof gsap !== 'undefined') gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
             }, delay);
@@ -1052,13 +1052,13 @@ document.addEventListener('DOMContentLoaded', function () {
                                     gsap.from(clone.children, { y: -30, opacity: 0, duration: 0.5, stagger: 0.04, ease: 'power2.out' });
                                 } else {
                                     const p = document.createElement('div');
-                                    p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                                    p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" class="mega-detail-img"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                                     body.appendChild(p);
                                     gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
                                 }
                             } else {
                                 const p = document.createElement('div');
-                                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" class="mega-detail-img"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                                 body.appendChild(p);
                                 gsap.from(p, { y: -20, opacity: 0, duration: 0.45 });
                             }
@@ -1069,7 +1069,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // fallback sense GSAP: replace immediatament
                 body.innerHTML = '';
                 const p = document.createElement('div');
-                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" style="max-width:100%;height:auto;border-radius:8px"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
+                p.innerHTML = `<h4>${name}</h4><img src="${frontSrc}" class="mega-detail-img"><p class=\"mt-3\">Contingut no disponible encara.</p>`;
                 body.appendChild(p);
             }
         }
@@ -1152,10 +1152,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Animation timings (ms)
             const ENLARGE = 600;
-            const HOLD = 1400; // while enlarged show the second image
+            const HOLD = 600; // while enlarged show the second image
             const SHRINK = 600;
             const TOTAL = ENLARGE + HOLD + SHRINK; // 2600
-            const SCROLL_DELAY = 3000; // user requested scroll after 3s
+            const SCROLL_DELAY = 1500; // user requested scroll after 3s
             const SCALE = 1.6; // target scale when centered (moderate)
 
             // Compute geometry to animate from current position toward center
@@ -1232,5 +1232,55 @@ document.addEventListener('DOMContentLoaded', function () {
                 onActivate();
             }
         });
+    })();
+
+    /* ---------------- Global scroll entrance animations (from bottom) ---------------- */
+    (function initScrollEntrance() {
+        try {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Respect user preference
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // Select sensible page-level containers to animate. We skip timeline items and overlays.
+            const nodes = gsap.utils.toArray('.container, .container-lg, section, article');
+            const targets = nodes.filter(el => {
+                if (!el) return false;
+                // Do not animate any element that is inside the hero/banner first container (#inici)
+                if (el.closest('#inici')) return false;
+                if (el.closest('.timeline-fullwidth')) return false;
+                if (el.closest('.mega-overlay')) return false;
+                if (el.id === 'quiz' || el.id === 'quizResult') return false;
+                return true;
+            });
+
+            if (prefersReduced) {
+                // Immediately show targets without animation
+                targets.forEach(t => { t.style.opacity = ''; t.style.transform = ''; });
+                return;
+            }
+
+            targets.forEach((el, i) => {
+                // initial state
+                gsap.set(el, { y: 40, opacity: 0, force3D: true });
+
+                gsap.to(el, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    delay: 0,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 90%',
+                        toggleActions: 'play none none reverse',
+                        markers: false
+                    }
+                });
+            });
+        } catch (err) {
+            // silent
+        }
     })();
 });
