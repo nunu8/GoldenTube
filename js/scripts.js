@@ -928,7 +928,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         const safeName = name || 'Youtuber';
-    const content = `<!doctype html><html lang="ca"><head><meta charset="utf-8"><title>${safeName} — Detalls</title><link rel="stylesheet" href="./css/styles.css"></head><body class="popup-body"><h2>${safeName}</h2><img src="${frontSrc}" class="mega-detail-img"><div class="popup-note">Afegeix aquí la informació del youtuber.</div></body></html>`;
+        const content = `<!doctype html><html lang="ca"><head><meta charset="utf-8"><title>${safeName} — Detalls</title><link rel="stylesheet" href="./css/styles.css"></head><body class="popup-body"><h2>${safeName}</h2><img src="${frontSrc}" class="mega-detail-img"><div class="popup-note">Afegeix aquí la informació del youtuber.</div></body></html>`;
         win.document.open(); win.document.write(content); win.document.close();
     }
 

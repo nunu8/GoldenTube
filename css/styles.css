@@ -385,9 +385,11 @@ html {
     z-index: 1001;
     pointer-events: none;
 }
+
 .logo-container-custom a {
     pointer-events: all;
 }
+
 .logo-img {
     height: 6.7rem;
 }
@@ -412,9 +414,18 @@ html {
 .carousel-wrapper-custom {
     max-width: calc(4 * 15rem + 3 * 1.5rem);
 }
-.carousel-btn-prev { left: -5rem; }
-.carousel-btn-next { right: -5rem; }
-.youtuber-carousel { padding: 2rem 0; }
+
+.carousel-btn-prev {
+    left: -5rem;
+}
+
+.carousel-btn-next {
+    right: -5rem;
+}
+
+.youtuber-carousel {
+    padding: 2rem 0;
+}
 
 /* Reusable image style used by the carousel flip cards */
 .carousel-card-img {
@@ -435,22 +446,34 @@ html {
     overflow: visible;
     position: relative;
 }
-.carousel-btn-prev-videos { left: -4.5rem; z-index: 3000; }
-.carousel-btn-next-videos { right: -4.5rem; z-index: 3000; }
 
-/* Make video carousel arrows animate like the youtubers carousel arrows */
+.carousel-btn-prev-videos {
+    left: -4.5rem;
+    z-index: 3000;
+}
+
+.carousel-btn-next-videos {
+    right: -4.5rem;
+    z-index: 3000;
+}
+
+/* Make video carousel arrows animate like the main carousel arrows */
 .carousel-btn-prev-videos:hover {
     transform: translateY(-50%) translateX(-8px);
 }
+
 .carousel-btn-next-videos:hover {
     transform: translateY(-50%) translateX(8px);
 }
+
 .carousel-btn-prev-videos:hover .custom-carousel-icon {
     transform: translateX(-6px);
 }
+
 .carousel-btn-next-videos:hover .custom-carousel-icon {
     transform: translateX(6px);
 }
+
 .video-thumb {
     width: 18rem;
     height: 10.5rem;
@@ -458,6 +481,7 @@ html {
     border-radius: 10px;
     background: #000;
 }
+
 .video-thumb iframe {
     width: 100%;
     height: 100%;
@@ -475,18 +499,36 @@ html {
 
 /* Responsive: on smaller screens show 1 slide (wrapper becomes full width) */
 @media (max-width: 991.98px) {
-    .carousel-wrapper-videos-custom { width: 100%; padding: 0 1rem; }
+    .carousel-wrapper-videos-custom {
+        width: 100%;
+        padding: 0 1rem;
+    }
 }
 
 /* Footer logo sizing moved from HTML */
-.footer-logo { height: 3rem; }
+.footer-logo {
+    height: 3rem;
+}
 
 /* Mega / fallback detail image class used when inserting HTML from JS */
-.mega-detail-img { max-width: 100%; height: auto; border-radius: 8px; display: block; }
+.mega-detail-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
 
 /* Popup (opened via JS fallback) styles */
-.popup-body { background:#111; color:#fff; font-family: system-ui; padding:16px; }
-.popup-note { margin-top: 12px; }
+.popup-body {
+    background: #111;
+    color: #fff;
+    font-family: system-ui;
+    padding: 16px;
+}
+
+.popup-note {
+    margin-top: 12px;
+}
 
 /* Slightly smaller scale on small screens is handled in JS via computed scale,
    CSS fallback only reduces motion if requested. */
@@ -915,7 +957,8 @@ html {
 .timeline-media {
     box-sizing: border-box;
     width: 100%;
-    max-width: 420px; /* fits comfortably inside the .timeline-content */
+    max-width: 420px;
+    /* fits comfortably inside the .timeline-content */
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
@@ -933,8 +976,11 @@ html {
 }
 
 @media (min-width: 1200px) {
+
     /* On very wide screens allow slightly larger media */
-    .timeline-media { max-width: 520px; }
+    .timeline-media {
+        max-width: 520px;
+    }
 }
 
 /* On small screens, stack items and hide central line */
