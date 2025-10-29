@@ -200,82 +200,82 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!quizContainer || !quizForm || !quizResult || !quizReset) return;
 
         const youtubers = [
-            { id: 'rubius', name: 'ElRubiusOMG', banner: './RECURSOS/youtubers/slider/rubius-banner.png', desc: 'Humor, gaming i energia desenfrenada.' },
-            { id: 'auronplay', name: 'AuronPlay', banner: './RECURSOS/youtubers/slider/auronplay-banner.png', desc: 'Sàtira, reaccions i contingut directe.' },
-            { id: 'wismichu', name: 'Wismichu', banner: './RECURSOS/youtubers/slider/wismichu-banner.png', desc: 'Humor àcid i formats originals.' },
-            { id: 'dulceida', name: 'Dulceida', banner: './RECURSOS/youtubers/slider/dulceida-banner.png', desc: 'Moda, estètica i lifestyle.' },
-            { id: 'giorgio', name: 'Giorgio', banner: './RECURSOS/youtubers/slider/giorgio-banner.png', desc: 'Música i producció amb sensibilitat.' },
-            { id: 'gref', name: 'TheGrefg', banner: './RECURSOS/youtubers/slider/gref-banner.png', desc: 'Gaming competitiu i streams professionals.' },
-            { id: 'laubalo', name: 'Laubalo', banner: './RECURSOS/youtubers/slider/laubalo-banner.png', desc: 'Creativitat íntima i contingut personal.' },
-            { id: 'willyrex', name: 'Willyrex', banner: './RECURSOS/youtubers/slider/willyrex-banner.png', desc: 'Gaming clàssic i contingut per a fans.' },
-            { id: 'alexby', name: 'AlexBy11', banner: './RECURSOS/youtubers/slider/alexby-banner.png', desc: 'Entreteniment i vídeos ben editats.' },
-            { id: 'yuya', name: 'Yuya', banner: './RECURSOS/youtubers/slider/yuya-banner.png', desc: 'Belleza, tutorials i alegria.' },
-            { id: 'ocho', name: '8cho', banner: './RECURSOS/youtubers/slider/ocho-banner.png', desc: 'Humor àgil i contingut viral.' },
-            { id: 'vegetta', name: 'Vegetta777', banner: './RECURSOS/youtubers/slider/vegetta-banner.png', desc: 'Gaming narratiu i universos de joc.' }
+            { id: 'rubius', name: 'ElRubiusOMG', banner: './RECURSOS/youtubers/slider/rubius-banner.png', desc: 'Humor, gaming i energia desenfrenada.', img: './RECURSOS/youtubers/rubius1.jpg' },
+            { id: 'auronplay', name: 'AuronPlay', banner: './RECURSOS/youtubers/slider/auronplay-banner.png', desc: 'Sàtira, reaccions i contingut directe.', img: './RECURSOS/youtubers/auron1.jpg' },
+            { id: 'wismichu', name: 'Wismichu', banner: './RECURSOS/youtubers/slider/wismichu-banner.png', desc: 'Humor àcid i formats originals.', img: './RECURSOS/youtubers/wismichu1.jpg' },
+            { id: 'dulceida', name: 'Dulceida', banner: './RECURSOS/youtubers/slider/dulceida-banner.png', desc: 'Moda, estètica i lifestyle.', img: './RECURSOS/youtubers/dulceida1.jpg' },
+            { id: 'giorgio', name: 'El Rincón de Giorgio', banner: './RECURSOS/youtubers/slider/giorgio-banner.png', desc: 'Música i producció amb sensibilitat.', img: './RECURSOS/youtubers/jordiwild1.jpg' },
+            { id: 'gref', name: 'TheGrefg', banner: './RECURSOS/youtubers/slider/gref-banner.png', desc: 'Gaming competitiu i streams professionals.', img: './RECURSOS/youtubers/gref1.jpg' },
+            { id: 'laubalo', name: 'Carla Laubalo', banner: './RECURSOS/youtubers/slider/laubalo-banner.png', desc: 'Creativitat íntima i contingut personal.', img: './RECURSOS/youtubers/carlalaubalo1.jpg' },
+            { id: 'willyrex', name: 'Willyrex', banner: './RECURSOS/youtubers/slider/willyrex-banner.png', desc: 'Gaming clàssic i contingut per a fans.', img: './RECURSOS/youtubers/willyrex1.jpg' },
+            { id: 'alexby', name: 'AlexBy11', banner: './RECURSOS/youtubers/slider/alexby-banner.png', desc: 'Entreteniment i vídeos ben editats.', img: './RECURSOS/youtubers/alexby1.jpg' },
+            { id: 'yuya', name: 'Yuya', banner: './RECURSOS/youtubers/slider/yuya-banner.png', desc: 'Belleza, tutorials i alegria.', img: './RECURSOS/youtubers/yuya1.jpg' },
+            { id: 'ocho', name: '8cho', banner: './RECURSOS/youtubers/slider/ocho-banner.png', desc: 'Humor àgil i contingut viral.', img: './RECURSOS/youtubers/8cho1.jpg' },
+            { id: 'vegetta', name: 'Vegetta777', banner: './RECURSOS/youtubers/slider/vegetta-banner.png', desc: 'Gaming narratiu i universos de joc.', img: './RECURSOS/youtubers/vegetta1.jpg' }
         ];
 
         const questions = [
             {
-                q: 'Quin tipus de contingut prefereixes crear o veure?',
+                q: 'Què prefereixes fer un dissabte per la tarda?',
                 options: [
-                    { t: 'Gaming i energia', adds: ['rubius', 'willyrex', 'vegetta'] },
-                    { t: 'Sàtira i reaccions', adds: ['auronplay', 'wismichu'] },
-                    { t: 'Moda i estètica', adds: ['dulceida', 'yuya'] },
-                    { t: 'Música i producció', adds: ['giorgio', 'alexby'] }
+                    { t: 'Jugar videojocs durant hores', adds: ['rubius', 'willyrex', 'vegetta'] },
+                    { t: 'Fer una broma amb els meus amics', adds: ['auronplay', 'wismichu'] },
+                    { t: 'Arreglar-me i provar looks nous', adds: ['dulceida', 'yuya'] },
+                    { t: 'Fer chisme amb els amics', adds: ['giorgio', 'alexby'] }
                 ]
             },
             {
-                q: 'Què faries un cap de setmana ideal?',
+                q: 'El teu humor és...',
                 options: [
-                    { t: 'Stream amb amics', adds: ['gref', 'rubius'] },
-                    { t: 'Vlog de viatge', adds: ['alexby', 'yuya'] },
-                    { t: 'Reto o prank', adds: ['wismichu', 'auronplay'] },
-                    { t: 'Projecte creatiu sola', adds: ['laubalo', 'ocho'] }
+                    { t: 'Sarcàstic', adds: ['gref', 'rubius'] },
+                    { t: 'Random', adds: ['alexby', 'yuya'] },
+                    { t: 'Motivador', adds: ['wismichu', 'auronplay'] },
+                    { t: 'Observador', adds: ['laubalo', 'ocho'] }
                 ]
             },
             {
-                q: 'Com descrius el teu to habitual?',
+                q: 'Quin tipus de contingut consumeixes més sovint?',
                 options: [
-                    { t: 'Enèrgic i desenfadat', adds: ['rubius', 'auronplay', 'willyrex'] },
-                    { t: 'Reflexiu i artístic', adds: ['giorgio', 'alexby', 'gref'] },
-                    { t: 'Irònic i punyent', adds: ['wismichu', 'ocho'] },
-                    { t: 'Trendy i cuidat', adds: ['dulceida', 'yuya', 'laubalo'] }
+                    { t: 'Gameplays i streams', adds: ['rubius', 'auronplay', 'willyrex'] },
+                    { t: 'Memes i vídeos de humor', adds: ['giorgio', 'alexby', 'gref'] },
+                    { t: 'Tutorials de maquillatge o lifestyle', adds: ['wismichu', 'ocho'] },
+                    { t: 'Comentaris i anàlisis', adds: ['dulceida', 'yuya', 'laubalo'] }
                 ]
             },
             {
-                q: 'Quina audiència prefereixes?',
+                q: 'Com reacciones davant un conflicte?',
                 options: [
-                    { t: 'Massiva i mainstream', adds: ['vegetta', 'rubius'] },
-                    { t: 'Nínxol apassionat', adds: ['gref', 'alexby'] },
-                    { t: 'Comunitat i streaming', adds: ['auronplay', 'willyrex'] },
-                    { t: 'Moda/creatives', adds: ['dulceida', 'yuya'] }
+                    { t: 'Marxo i segueixo amb la meva', adds: ['vegetta', 'rubius'] },
+                    { t: 'Faig broma de tot', adds: ['gref', 'alexby'] },
+                    { t: 'Intento parlar-ho amb calma', adds: ['auronplay', 'willyrex'] },
+                    { t: 'Dono la meva opinió clara i directa', adds: ['dulceida', 'yuya'] }
                 ]
             },
             {
-                q: 'Quina durada prefereixes per al teu contingut?',
+                q: 'El teu estil de comunicació és...',
                 options: [
-                    { t: 'Curt/shorts', adds: ['yuya', 'ocho'] },
-                    { t: 'Streams llargs', adds: ['gref', 'willyrex', 'vegetta'] },
-                    { t: 'Vídeos editats', adds: ['rubius', 'auronplay'] },
-                    { t: 'Tutorials / DIY', adds: ['alexby', 'laubalo'] }
+                    { t: 'Directe i sense filtres', adds: ['yuya', 'ocho'] },
+                    { t: 'Caòtic i imprevisible', adds: ['gref', 'willyrex', 'vegetta'] },
+                    { t: 'Proper i amigable', adds: ['rubius', 'auronplay'] },
+                    { t: 'Irònic i crític', adds: ['alexby', 'laubalo'] }
                 ]
             },
             {
-                q: 'Quina mena de col·laboracions et veus?',
+                q: 'Els teus amics et descriuen com...',
                 options: [
-                    { t: 'Big collabs de xou', adds: ['rubius', 'auronplay'] },
-                    { t: 'Equip de producció', adds: ['gref', 'vegetta'] },
-                    { t: 'Projectes personals', adds: ['giorgio', 'alexby'] },
-                    { t: 'Comunitat i fans', adds: ['ocho', 'laubalo'] }
+                    { t: 'El competitiu del grup', adds: ['rubius', 'auronplay'] },
+                    { t: 'El que sempre fa riure', adds: ['gref', 'vegetta'] },
+                    { t: 'El que cuida els detalls', adds: ['giorgio', 'alexby'] },
+                    { t: 'El que diu les veritats incòmodes', adds: ['ocho', 'laubalo'] }
                 ]
             },
             {
-                q: 'Quin “vibe” t’identifica més?',
+                q: 'Abans de anar a dormir, tu...',
                 options: [
-                    { t: 'Brillant i alegre', adds: ['rubius', 'dulceida', 'yuya'] },
-                    { t: 'Fosc i punyent', adds: ['auronplay', 'wismichu'] },
-                    { t: 'Retro / gaming', adds: ['vegetta', 'willyrex'] },
-                    { t: 'Modern i pulit', adds: ['giorgio', 'alexby'] }
+                    { t: '"Una partida més i prou"', adds: ['rubius', 'dulceida', 'yuya'] },
+                    { t: 'Veig tiktok fins a les 3 AM', adds: ['auronplay', 'wismichu'] },
+                    { t: 'Planifico el dia següent amb detall', adds: ['vegetta', 'willyrex'] },
+                    { t: 'Escolto música o podcasts', adds: ['giorgio', 'alexby'] }
                 ]
             }
         ];
@@ -424,30 +424,41 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function showResult(result) {
+            // Simplified result: centered name and a single photo below it
             quizResult.innerHTML = '';
-            const img = document.createElement('img');
-            img.src = result.banner;
-            img.alt = result.name + ' banner';
-            const h = document.createElement('h3'); h.textContent = `Ets ${result.name}!`;
-            const p = document.createElement('p'); p.textContent = result.desc;
-            const btns = document.createElement('div'); btns.className = 'mt-2';
-            const restart = document.createElement('button'); restart.className = 'btn btn-primary me-2'; restart.textContent = 'Reiniciar';
+            const h = document.createElement('h2');
+            h.className = 'quiz-result-name';
+            h.textContent = `${result.name}`;
+
+            // Use an explicit image provided in the youtuber object.
+            // Prefer `result.img`, then `result.photo`, then `result.banner`.
+            // IMPORTANT: do NOT derive the path from the id (you said you don't want id-based).
+            const photoSrc = result.img || result.photo || result.banner || '';
+            let photo = null;
+            if (photoSrc) {
+                photo = document.createElement('img');
+                photo.src = photoSrc;
+                photo.alt = result.name;
+                photo.className = 'quiz-result-photo';
+            }
+
+            const btns = document.createElement('div'); btns.className = 'mt-3 text-center';
+            const restart = document.createElement('button'); restart.className = 'btn btn-primary'; restart.textContent = 'Reiniciar';
             restart.addEventListener('click', () => {
                 quizForm.reset();
                 quizResult.classList.add('d-none');
-                if (typeof showStepFn === 'function') showStepFn(0);
+                if (typeof showStepFn === 'function') showStepFn(0, false);
                 const firstInput = quizContainer.querySelector('.quiz-step[data-step="0"] input');
                 if (firstInput) firstInput.focus();
                 window.scrollTo({ top: quizForm.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
             });
             btns.appendChild(restart);
 
-            quizResult.appendChild(img);
             quizResult.appendChild(h);
-            quizResult.appendChild(p);
+            if (photo) quizResult.appendChild(photo);
             quizResult.appendChild(btns);
             quizResult.classList.remove('d-none');
-            // scroll to result
+            // scroll to result (center)
             quizResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
@@ -629,9 +640,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 // allow normal middle-click / ctrl-click to open in new tab
                 if (e.metaKey || e.ctrlKey || e.button === 1) return;
                 e.preventDefault();
-                try { window.location.hash = ''; } catch (err) { /* ignore */ }
-                // reload the page; removing the hash above ensures we land at top
-                window.location.reload();
+                // remove any hash to avoid anchor jumps
+                try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (err) { /* ignore */ }
+                // Smooth scroll to top instead of reloading
+                if (typeof gsap !== 'undefined' && typeof ScrollToPlugin !== 'undefined') {
+                    gsap.to(window, { duration: 0, ease: 'power2.out', scrollTo: { y: 0, autoKill: false } });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             });
         }
     } catch (err) { /* silent */ }

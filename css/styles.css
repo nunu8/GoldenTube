@@ -762,6 +762,30 @@ html {
     margin-bottom: 0.5rem;
 }
 
+/* Simplified quiz result styling: centered name and photo */
+.quiz-result-name {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+.quiz-result-photo {
+    display: block;
+    margin: 0.4rem auto 0;
+    max-width: 100%;
+    width: 30%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Remove white box behind the quiz result photo and inherit the article's text color */
+.quiz-result {
+    background: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
 @media (min-width: 768px) {
     .quiz-options {
         grid-template-columns: 1fr 1fr;
